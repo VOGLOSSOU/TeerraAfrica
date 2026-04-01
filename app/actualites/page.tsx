@@ -103,46 +103,58 @@ export default function ActualitesPage() {
 
       {/* POSTS */}
       <section style={{ background: '#faf8f3', padding: '6rem 0' }}>
-        <div className="container-wide" style={{ maxWidth: 860, margin: '0 auto' }}>
-          <div style={{ display: 'flex', flexDirection: 'column', gap: '4rem' }}>
+        <div className="container-wide">
+          <div style={{
+            display: 'grid',
+            gridTemplateColumns: 'repeat(2, 1fr)',
+            gap: '2rem',
+            alignItems: 'start',
+          }}>
             {posts.map((post, idx) => (
               <article
                 key={idx}
                 style={{
-                  background: '#ffffff', borderRadius: '28px',
+                  background: '#ffffff',
+                  borderRadius: '24px',
                   overflow: 'hidden',
-                  boxShadow: '0 4px 24px rgba(0,0,0,0.07)',
-                  border: '1px solid rgba(0,0,0,0.05)',
+                  boxShadow: '0 6px 32px rgba(0,0,0,0.08)',
+                  marginTop: idx % 2 !== 0 ? '3.5rem' : '0',
                 }}
               >
-                {/* Images */}
-                <div style={{ display: 'grid', gridTemplateColumns: post.images.length > 1 ? '1fr 1fr' : '1fr' }}>
-                  {post.images.map((img, j) => (
-                    <div key={j} style={{ position: 'relative', height: post.images.length === 1 ? 320 : 240 }}>
-                      <Image src={img} alt={`${post.title} — photo ${j + 1}`} fill className="object-cover" />
-                    </div>
-                  ))}
+                {/* Image */}
+                <div style={{ position: 'relative', height: 230, overflow: 'hidden' }}>
+                  <Image
+                    src={post.images[0]}
+                    alt={post.title}
+                    fill
+                    className="object-cover"
+                  />
+                  <div style={{
+                    position: 'absolute', inset: 0,
+                    background: 'linear-gradient(to top, rgba(27,67,50,0.55) 0%, transparent 50%)',
+                  }} />
+                  <span style={{
+                    position: 'absolute', top: '1rem', left: '1rem',
+                    background: post.tagColor, color: '#ffffff',
+                    fontSize: '0.7rem', fontWeight: 700, letterSpacing: '0.06em',
+                    padding: '0.35rem 0.875rem', borderRadius: '99px',
+                  }}>
+                    {post.tag}
+                  </span>
                 </div>
 
                 {/* Content */}
-                <div style={{ padding: '2.5rem 3rem' }}>
+                <div style={{ padding: '2rem 2.25rem 2.25rem' }}>
                   {/* Meta */}
-                  <div style={{ display: 'flex', flexWrap: 'wrap', alignItems: 'center', gap: '0.75rem', marginBottom: '1.5rem' }}>
-                    <span style={{
-                      background: post.tagColor, color: '#ffffff',
-                      fontSize: '0.72rem', fontWeight: 700, letterSpacing: '0.06em',
-                      padding: '0.375rem 0.875rem', borderRadius: '99px',
-                    }}>
-                      {post.tag}
-                    </span>
-                    <span style={{ color: '#9ca3af', fontSize: '0.825rem', display: 'flex', alignItems: 'center', gap: '0.3rem' }}>
-                      <svg style={{ width: 14, height: 14 }} fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <div style={{ display: 'flex', alignItems: 'center', gap: '1rem', marginBottom: '1rem' }}>
+                    <span style={{ color: '#9ca3af', fontSize: '0.8rem', display: 'flex', alignItems: 'center', gap: '0.3rem' }}>
+                      <svg style={{ width: 13, height: 13 }} fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/>
                       </svg>
                       {post.date}
                     </span>
-                    <span style={{ color: '#9ca3af', fontSize: '0.825rem', display: 'flex', alignItems: 'center', gap: '0.3rem' }}>
-                      <svg style={{ width: 14, height: 14 }} fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <span style={{ color: '#9ca3af', fontSize: '0.8rem', display: 'flex', alignItems: 'center', gap: '0.3rem' }}>
+                      <svg style={{ width: 13, height: 13 }} fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/>
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/>
                       </svg>
@@ -150,37 +162,45 @@ export default function ActualitesPage() {
                     </span>
                   </div>
 
-                  <h2 style={{ fontSize: 'clamp(1.25rem, 2.5vw, 1.6rem)', fontWeight: 700, color: '#1b4332', marginBottom: '1rem', lineHeight: 1.35, fontFamily: 'var(--font-playfair), serif' }}>
+                  <h2 style={{
+                    fontSize: '1.1rem', fontWeight: 700, color: '#1b4332',
+                    marginBottom: '0.875rem', lineHeight: 1.4,
+                    fontFamily: 'var(--font-playfair), serif',
+                  }}>
                     {post.title}
                   </h2>
-                  <p style={{ color: '#374151', fontSize: '0.975rem', lineHeight: 1.85, fontWeight: 500, marginBottom: '1.25rem' }}>
+
+                  <p style={{
+                    color: '#6b7280', fontSize: '0.875rem',
+                    lineHeight: 1.8, marginBottom: '1.5rem',
+                    display: '-webkit-box',
+                    WebkitLineClamp: 3,
+                    WebkitBoxOrient: 'vertical' as const,
+                    overflow: 'hidden',
+                  }}>
                     {post.intro}
                   </p>
-                  <div style={{
-                    color: '#6b7280', fontSize: '0.9rem', lineHeight: 1.9,
-                    whiteSpace: 'pre-line',
-                    paddingTop: '1.25rem', borderTop: '1px solid #f3f4f6',
-                    marginBottom: '2rem',
-                  }}>
-                    {post.content}
-                  </div>
 
                   {/* Partenaires */}
-                  <div style={{ paddingTop: '1.5rem', borderTop: '1px solid #f3f4f6' }}>
-                    <p style={{ fontSize: '0.7rem', fontWeight: 700, color: '#2d6a4f', letterSpacing: '0.15em', textTransform: 'uppercase', marginBottom: '0.75rem' }}>
-                      Partenaires
-                    </p>
-                    <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.5rem' }}>
-                      {post.partenaires.map((p, j) => (
-                        <span key={j} style={{
-                          background: '#faf8f3', color: '#8b5e15',
-                          padding: '0.35rem 0.875rem', borderRadius: '99px',
-                          fontSize: '0.8rem', border: '1px solid rgba(233,196,106,0.4)',
-                        }}>
-                          {p}
-                        </span>
-                      ))}
-                    </div>
+                  <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.4rem' }}>
+                    {post.partenaires.slice(0, 2).map((p, j) => (
+                      <span key={j} style={{
+                        background: '#faf8f3', color: '#8b5e15',
+                        padding: '0.3rem 0.75rem', borderRadius: '99px',
+                        fontSize: '0.75rem', fontWeight: 500,
+                      }}>
+                        {p}
+                      </span>
+                    ))}
+                    {post.partenaires.length > 2 && (
+                      <span style={{
+                        background: '#faf8f3', color: '#9ca3af',
+                        padding: '0.3rem 0.75rem', borderRadius: '99px',
+                        fontSize: '0.75rem',
+                      }}>
+                        +{post.partenaires.length - 2}
+                      </span>
+                    )}
                   </div>
                 </div>
               </article>
