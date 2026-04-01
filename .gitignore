@@ -3,7 +3,6 @@ node_modules/
 .pnp
 .pnp.js
 
-
 # Next.js
 .next/
 out/
@@ -37,5 +36,3 @@ Thumbs.db
 # TypeScript
 *.tsbuildinfo
 next-env.d.ts
-node_modules/
-.next/

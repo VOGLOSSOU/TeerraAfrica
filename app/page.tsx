@@ -29,21 +29,6 @@ export default function HomePage() {
             display: 'flex', flexDirection: 'column', alignItems: 'center',
           }}
         >
-          {/* Badge */}
-          <div
-            style={{
-              display: 'inline-flex', alignItems: 'center', gap: '0.5rem',
-              background: 'rgba(255,255,255,0.1)', backdropFilter: 'blur(8px)',
-              border: '1px solid rgba(255,255,255,0.2)', borderRadius: '99px',
-              padding: '0.5rem 1.25rem', marginBottom: '2rem',
-            }}
-          >
-            <span style={{ width: 8, height: 8, background: '#e9c46a', borderRadius: '50%', display: 'inline-block', flexShrink: 0 }}></span>
-            <span style={{ color: '#e9c46a', fontSize: '0.8rem', fontWeight: 600, letterSpacing: '0.05em' }}>
-              Association à but non lucratif · Fondée en 2020
-            </span>
-          </div>
-
           {/* Headline */}
           <h1
             style={{
@@ -200,25 +185,26 @@ export default function HomePage() {
 
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))', gap: '1.75rem' }}>
             {[
-              { icon: <IconGlobe size={26} color="#fff" />, title: 'Transition Écologique', desc: 'Soutenir la préservation des ressources naturelles et promouvoir des pratiques durables pour les générations futures.', accent: '#2d6a4f' },
-              { icon: <IconBook size={26} color="#fff" />, title: 'Éducation', desc: 'Former les jeunes et les communautés aux enjeux climatiques, environnementaux et numériques.', accent: '#b5832a' },
-              { icon: <IconLeaf size={26} color="#fff" />, title: 'Entrepreneuriat Vert', desc: "Accompagner les porteurs de projets innovants dans les secteurs de l'environnement et de l'agriculture.", accent: '#52b788' },
-              { icon: <IconPeace size={26} color="#fff" />, title: 'Non-Violence', desc: 'Agir selon les principes de la non-violence pour construire des sociétés plus justes, solidaires et durables.', accent: '#8b5e15' },
+              { icon: <IconGlobe size={24} color="#2d6a4f" />, title: 'Transition Écologique', desc: 'Soutenir la préservation des ressources naturelles et promouvoir des pratiques durables pour les générations futures.', accent: '#2d6a4f', accentLight: 'rgba(45,106,79,0.08)' },
+              { icon: <IconBook size={24} color="#b5832a" />, title: 'Éducation', desc: 'Former les jeunes et les communautés aux enjeux climatiques, environnementaux et numériques.', accent: '#b5832a', accentLight: 'rgba(181,131,42,0.08)' },
+              { icon: <IconLeaf size={24} color="#52b788" />, title: 'Entrepreneuriat Vert', desc: "Accompagner les porteurs de projets innovants dans les secteurs de l'environnement et de l'agriculture.", accent: '#52b788', accentLight: 'rgba(82,183,136,0.08)' },
+              { icon: <IconPeace size={24} color="#8b5e15" />, title: 'Non-Violence', desc: 'Agir selon les principes de la non-violence pour construire des sociétés plus justes, solidaires et durables.', accent: '#8b5e15', accentLight: 'rgba(139,94,21,0.08)' },
             ].map((m, i) => (
               <div
                 key={i}
                 className="card"
                 style={{
-                  background: '#ffffff', borderRadius: '24px',
-                  padding: '2.5rem', border: '1px solid #e5e7eb',
-                  borderTop: `4px solid ${m.accent}`,
-                  boxShadow: '0 2px 12px rgba(0,0,0,0.05)',
+                  background: '#ffffff',
+                  borderRadius: '24px',
+                  padding: '2.5rem',
+                  boxShadow: '0 4px 28px rgba(0,0,0,0.07)',
                 }}
               >
                 <div style={{
-                  width: 56, height: 56, borderRadius: '16px',
-                  background: m.accent, display: 'flex', alignItems: 'center',
-                  justifyContent: 'center', marginBottom: '1.5rem',
+                  width: 52, height: 52, borderRadius: '14px',
+                  background: m.accentLight,
+                  display: 'flex', alignItems: 'center',
+                  justifyContent: 'center', marginBottom: '1.75rem',
                 }}>
                   {m.icon}
                 </div>
@@ -261,6 +247,9 @@ export default function HomePage() {
             {/* Content */}
             <div>
               <span className="section-label">Qui sommes-nous ?</span>
+              <p style={{ fontSize: '0.78rem', color: '#9ca3af', letterSpacing: '0.06em', textTransform: 'uppercase', marginBottom: '1rem' }}>
+                Association à but non lucratif · Fondée en 2020
+              </p>
               <h2 className="heading-lg" style={{ marginBottom: '1.5rem' }}>
                 Un réseau solidaire<br />pour l&apos;Afrique
               </h2>
