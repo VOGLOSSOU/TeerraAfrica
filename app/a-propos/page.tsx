@@ -68,15 +68,25 @@ export default function AProposPage() {
 
               <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1rem', marginTop: '2.5rem' }}>
                 {[
-                  { val: '2020', label: 'Fondée en' },
-                  { val: '20+', label: 'Projets actifs' },
+                  { val: '2020', label: 'Fondée en', icon: '◆' },
+                  { val: '20+', label: 'Projets actifs', icon: '◆' },
                 ].map((s, i) => (
                   <div key={i} style={{
-                    background: '#faf8f3', padding: '1.5rem',
-                    borderRadius: '16px', borderLeft: '4px solid #b5832a',
+                    background: '#ffffff',
+                    padding: '1.75rem 1.5rem',
+                    borderRadius: '20px',
+                    boxShadow: '0 4px 24px rgba(0,0,0,0.07)',
                   }}>
-                    <p style={{ fontSize: '2.25rem', fontWeight: 900, color: '#2d6a4f', lineHeight: 1 }}>{s.val}</p>
-                    <p style={{ color: '#6b7280', fontSize: '0.875rem', marginTop: '0.5rem' }}>{s.label}</p>
+                    <p style={{
+                      fontSize: '2.5rem', fontWeight: 900,
+                      color: '#1b4332', lineHeight: 1,
+                      letterSpacing: '-0.02em',
+                    }}>{s.val}</p>
+                    <p style={{
+                      color: '#9ca3af', fontSize: '0.8rem',
+                      marginTop: '0.6rem', fontWeight: 500,
+                      textTransform: 'uppercase', letterSpacing: '0.06em',
+                    }}>{s.label}</p>
                   </div>
                 ))}
               </div>
