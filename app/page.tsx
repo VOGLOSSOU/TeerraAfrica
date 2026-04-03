@@ -55,8 +55,7 @@ export default function HomePage() {
               marginBottom: '2.75rem',
             }}
           >
-            TEERRA AFRICA fédère des experts en environnement, éducation et entrepreneuriat
-            pour bâtir un avenir durable en Afrique de l&apos;Ouest et Australe.
+            Une organisation engagée pour la préservation de l&apos;environnement et des écosystèmes.
           </p>
 
           {/* CTAs */}
