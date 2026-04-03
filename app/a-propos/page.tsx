@@ -35,8 +35,8 @@ export default function AProposPage() {
             À propos de TEERRA AFRICA
           </h1>
           <p style={{ color: 'rgba(255,255,255,0.75)', fontSize: '1.1rem', lineHeight: 1.75, maxWidth: 580, margin: '0 auto' }}>
-            Un réseau né d&apos;une conviction : que la solidarité internationale, la non-violence et
-            l&apos;engagement collectif peuvent construire un avenir durable pour les communautés africaines.
+            Une organisation née d&apos;une conviction : que la préservation de l&apos;environnement et
+            l&apos;engagement collectif peuvent construire un avenir durable pour notre planète.
           </p>
         </div>
       </section>
