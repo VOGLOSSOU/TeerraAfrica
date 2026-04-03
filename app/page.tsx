@@ -332,82 +332,26 @@ export default function HomePage() {
           ACTUALITÉS
       ═══════════════════════════════════════ */}
       <section style={{ background: '#faf8f3', padding: '7rem 0' }}>
-        <div className="container-wide">
-          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-end', marginBottom: '3.5rem', flexWrap: 'wrap', gap: '1rem' }}>
-            <div>
-              <span className="section-label">Sur le terrain</span>
-              <h2 className="heading-lg" style={{ marginBottom: 0 }}>Actualités récentes</h2>
-            </div>
-            <Link
-              href="/actualites"
-              style={{
-                display: 'inline-flex', alignItems: 'center', gap: '0.4rem',
-                color: '#2d6a4f', fontWeight: 600, fontSize: '0.875rem',
-                textDecoration: 'none', border: '1.5px solid #2d6a4f',
-                padding: '0.6rem 1.25rem', borderRadius: '99px',
-              }}
-            >
-              Voir tout
-              <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3"/>
-              </svg>
-            </Link>
-          </div>
-
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '1.75rem' }}>
-            {[
-              {
-                img: '/images/actualites/post4-img1.jpg',
-                tag: 'Éducation Numérique',
-                tagColor: '#2d6a4f',
-                title: '170 jeunes initiés au numérique à Sô-Ava',
-                desc: 'Au CEG VEKKY, 170 élèves ont reçu leur attestation de formation grâce au partenariat avec l\'Association Sonagnon et le Ministère du Numérique.',
-              },
-              {
-                img: '/images/actualites/post3-img1.jpeg',
-                tag: 'Genre & Inclusion',
-                tagColor: '#b5832a',
-                title: 'Rencontre internationale sur le genre dans le numérique',
-                desc: 'Dans le cadre de la mission Wide & Co au Bénin, échanges décisifs sur l\'autonomisation des femmes dans le numérique et l\'innovation.',
-              },
-              {
-                img: '/images/actualites/post2-img1.jpeg',
-                tag: 'Accompagnement Social',
-                tagColor: '#52b788',
-                title: 'Enregistrement des artisans — projet ARCH',
-                desc: 'Accompagnement des artisans de Bohicon dans leur enregistrement au projet ARCH du Ministère des Affaires Sociales.',
-              },
-            ].map((post, i) => (
-              <div
-                key={i}
-                className="card"
-                style={{
-                  background: '#ffffff', borderRadius: '20px', overflow: 'hidden',
-                  boxShadow: '0 2px 16px rgba(0,0,0,0.06)',
-                  border: '1px solid rgba(0,0,0,0.05)',
-                }}
-              >
-                <div style={{ position: 'relative', height: 220, overflow: 'hidden' }}>
-                  <Image src={post.img} alt={post.title} fill className="object-cover" />
-                  <div style={{ position: 'absolute', top: '1rem', left: '1rem' }}>
-                    <span style={{
-                      background: post.tagColor, color: '#ffffff',
-                      fontSize: '0.72rem', fontWeight: 700, letterSpacing: '0.05em',
-                      padding: '0.35rem 0.875rem', borderRadius: '99px',
-                    }}>
-                      {post.tag}
-                    </span>
-                  </div>
-                </div>
-                <div style={{ padding: '1.75rem' }}>
-                  <h3 style={{ fontSize: '1rem', fontWeight: 700, color: '#1b4332', marginBottom: '0.875rem', lineHeight: 1.45 }}>
-                    {post.title}
-                  </h3>
-                  <p style={{ color: '#6b7280', fontSize: '0.875rem', lineHeight: 1.7 }}>{post.desc}</p>
-                </div>
-              </div>
-            ))}
-          </div>
+        <div className="container-wide" style={{ textAlign: 'center' }}>
+          <span className="section-label">Sur le terrain</span>
+          <h2 className="heading-lg" style={{ marginBottom: '1rem' }}>Actualités récentes</h2>
+          <p style={{ color: '#6b7280', fontSize: '1rem', marginBottom: '2.5rem' }}>
+            Les actualités environnementales arrivent bientôt.
+          </p>
+          <Link
+            href="/actualites"
+            style={{
+              display: 'inline-flex', alignItems: 'center', gap: '0.4rem',
+              color: '#2d6a4f', fontWeight: 600, fontSize: '0.875rem',
+              textDecoration: 'none', border: '1.5px solid #2d6a4f',
+              padding: '0.6rem 1.25rem', borderRadius: '99px',
+            }}
+          >
+            Voir toutes les actualités
+            <svg width="14" height="14" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+            </svg>
+          </Link>
         </div>
       </section>
 
