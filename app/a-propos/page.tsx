@@ -2,8 +2,7 @@ import type { Metadata } from 'next';
 import Image from 'next/image';
 import Link from 'next/link';
 import {
-  IconPeace, IconUsers, IconLeaf, IconBolt,
-  IconLink, IconLightbulb, IconMapPin,
+  IconUsers, IconLeaf, IconLightbulb, IconMapPin,
 } from '../components/Icons';
 
 export const metadata: Metadata = {
@@ -162,12 +161,9 @@ export default function AProposPage() {
           </div>
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))', gap: '1.75rem' }}>
             {[
-              { icon: <IconPeace size={24} color="#fff" />, title: 'Non-Violence', desc: 'Agir et transformer sans nuire. La non-violence est notre boussole morale et notre mode d\'action privilégié.' },
-              { icon: <IconUsers size={24} color="#fff" />, title: 'Solidarité', desc: 'Se positionner comme facilitateur, agir dans une perspective d\'entraide avec les communautés.' },
               { icon: <IconLeaf size={24} color="#fff" />, title: 'Durabilité', desc: 'Promouvoir une économie circulaire respectueuse de l\'environnement pour les générations futures.' },
-              { icon: <IconBolt size={24} color="#fff" />, title: 'Particip\'Action', desc: 'Renforcer la capacité des personnes à s\'impliquer de manière constructive, sur un pied d\'égalité.' },
-              { icon: <IconLink size={24} color="#fff" />, title: '"Be to Be"', desc: 'Le partenariat actif au service de tous. Construire ensemble pour un impact plus grand.' },
               { icon: <IconLightbulb size={24} color="#fff" />, title: 'Innovation', desc: 'Encourager les projets expérimentaux et innovants pour lutter contre le changement climatique.' },
+              { icon: <IconUsers size={24} color="#fff" />, title: 'Solidarité', desc: 'Agir en synergie avec les communautés locales pour une gestion durable des ressources naturelles.' },
             ].map((v, i) => (
               <div
                 key={i}
@@ -239,12 +235,10 @@ export default function AProposPage() {
               <ul style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
                 {[
                   'Soutenir la transition écologique',
-                  'Préserver les ressources en eau',
-                  'Encourager l\'agro-écologie',
+                  'Préserver les ressources en eau et la biodiversité',
+                  'Encourager l\'agro-écologie et les pratiques durables',
                   'Former à l\'entrepreneuriat vert',
-                  'Développer l\'éducation à l\'environnement',
-                  'Promouvoir l\'égalité des genres dans le numérique',
-                  'Accompagner les artisans et porteurs de projets',
+                  'Développer l\'éducation environnementale',
                   'Lutter contre le changement climatique',
                 ].map((m, i) => (
                   <li key={i} style={{ display: 'flex', alignItems: 'flex-start', gap: '0.875rem' }}>
@@ -264,7 +258,7 @@ export default function AProposPage() {
 
             <div style={{ position: 'relative' }}>
               <div style={{ position: 'relative', height: 500, borderRadius: '24px', overflow: 'hidden', boxShadow: '0 24px 60px rgba(0,0,0,0.12)' }}>
-                <Image src="/images/enfants-plage.jpeg" alt="Enfants et environnement" fill className="object-cover" />
+                <Image src="/images/who-1.jpg" alt="Teerra Africa environnement" fill className="object-cover" />
                 <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to top, rgba(27,67,50,0.7) 0%, transparent 50%)' }} />
               </div>
               <div style={{ position: 'absolute', bottom: '2rem', left: '2rem', right: '2rem' }}>
