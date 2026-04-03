@@ -41,8 +41,8 @@ export default function HomePage() {
               maxWidth: 800,
             }}
           >
-            La <span style={{ color: '#e9c46a' }}>Non-Violence</span><br />
-            au service de l&apos;Afrique
+            Ensemble pour<br />
+            la <span style={{ color: '#e9c46a' }}>préservation</span> de notre planète
           </h1>
 
           {/* Sub */}
