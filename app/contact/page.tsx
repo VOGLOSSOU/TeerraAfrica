@@ -43,7 +43,7 @@ export default function ContactPage() {
             <div className="divider divider-center" />
           </div>
 
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '1.75rem', maxWidth: 900, margin: '0 auto 5rem' }}>
+          <div className="grid-3-to-1" style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '1.75rem', maxWidth: 900, margin: '0 auto 5rem' }}>
             {[
               {
                 icon: (

@@ -39,7 +39,7 @@ export default function ActualitesPage() {
       {/* POSTS */}
       <section style={{ background: '#faf8f3', padding: '6rem 0' }}>
         <div className="container-wide">
-          <div style={{
+          <div className="grid-2-to-1" style={{
             display: 'grid',
             gridTemplateColumns: 'repeat(2, 1fr)',
             gap: '2rem',
