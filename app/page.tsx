@@ -224,87 +224,99 @@ export default function HomePage() {
       ═══════════════════════════════════════ */}
       <section style={{ background: '#faf8f3', padding: '7rem 0' }}>
         <div className="container-wide">
-          <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '5rem', alignItems: 'center' }}>
-            {/* Image */}
-            <div style={{ position: 'relative' }}>
-              <div style={{
-                position: 'absolute', top: -16, left: -16,
-                width: '100%', height: '100%', background: '#2d6a4f',
-                borderRadius: '24px', opacity: 0.12,
-              }}></div>
-              <div style={{ position: 'relative', height: 480, borderRadius: '24px', overflow: 'hidden', boxShadow: '0 24px 60px rgba(0,0,0,0.15)' }}>
-                <Image src="/images/teere-avec-feuilles-vertes.jpg" alt="Teerra Africa environnement" fill className="object-cover" />
-              </div>
-              {/* Floating card */}
-              <div style={{
-                position: 'absolute', bottom: -20, right: -20,
-                background: '#1b4332', color: '#ffffff',
-                borderRadius: '20px', padding: '1.5rem 1.75rem',
-                boxShadow: '0 12px 30px rgba(0,0,0,0.25)',
-              }}>
-                <p style={{ fontSize: '2.5rem', fontWeight: 900, color: '#e9c46a', lineHeight: 1 }}>170+</p>
-                <p style={{ fontSize: '0.8rem', marginTop: '0.5rem', color: '#d1fae5' }}>Jeunes formés<br />au numérique</p>
-              </div>
+
+          {/* Texte centré */}
+          <div style={{ textAlign: 'center', maxWidth: 680, margin: '0 auto 5rem' }}>
+            <span className="section-label">Qui sommes-nous ?</span>
+            <p style={{ fontSize: '0.78rem', color: '#9ca3af', letterSpacing: '0.06em', textTransform: 'uppercase', marginBottom: '1rem' }}>
+              Association à but non lucratif · Fondée en 2020
+            </p>
+            <h2 className="heading-lg" style={{ marginBottom: '1.5rem' }}>
+              Une organisation<br />en pleine expansion
+            </h2>
+            <p style={{ color: '#4b5563', fontSize: '1rem', lineHeight: 1.85, marginBottom: '1.25rem' }}>
+              TEERRA AFRICA est une association à but non lucratif d&apos;intérêt général, née du souhait de professionnels
+              de la région Normandie en France de fédérer leurs actions pour la préservation de l&apos;environnement.
+            </p>
+            <p style={{ color: '#4b5563', fontSize: '1rem', lineHeight: 1.85, marginBottom: '2rem' }}>
+              Notre approche est de favoriser l&apos;entrepreneuriat dans les domaines de l&apos;<strong>environnement</strong>, du <strong>climat</strong> et de
+              l&apos;<strong>agriculture durable</strong>.
+            </p>
+            <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.75rem', justifyContent: 'center', marginBottom: '2.5rem' }}>
+              {[
+                { label: 'Normandie, France' },
+                { label: "Afrique de l'Ouest" },
+                { label: 'Afrique Australe' },
+              ].map((tag) => (
+                <span
+                  key={tag.label}
+                  style={{
+                    display: 'inline-flex', alignItems: 'center', gap: '0.4rem',
+                    background: '#ffffff', color: '#374151',
+                    padding: '0.5rem 1rem', borderRadius: '99px',
+                    fontSize: '0.85rem', border: '1px solid #e5e7eb',
+                  }}
+                >
+                  <IconMapPin size={14} color="#2d6a4f" />
+                  {tag.label}
+                </span>
+              ))}
+            </div>
+            <Link
+              href="/a-propos"
+              style={{
+                display: 'inline-flex', alignItems: 'center', gap: '0.5rem',
+                padding: '0.875rem 1.75rem', borderRadius: '99px',
+                background: '#2d6a4f', color: '#ffffff',
+                fontWeight: 600, fontSize: '0.9rem',
+                textDecoration: 'none', boxShadow: '0 6px 18px rgba(45,106,79,0.3)',
+              }}
+            >
+              En savoir plus
+              <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+              </svg>
+            </Link>
+          </div>
+
+          {/* 3 photos en ligne staggered */}
+          <div style={{
+            display: 'grid',
+            gridTemplateColumns: 'repeat(3, 1fr)',
+            gap: '1.5rem',
+            alignItems: 'start',
+          }}>
+            {/* Photo 1 — décalée vers le haut */}
+            <div style={{
+              position: 'relative', height: 340,
+              borderRadius: '20px', overflow: 'hidden',
+              boxShadow: '0 16px 40px rgba(0,0,0,0.14)',
+              transform: 'rotate(-2deg) translateY(-20px)',
+            }}>
+              <Image src="/images/who-2.jpg" alt="Teerra Africa" fill className="object-cover" />
             </div>
 
-            {/* Content */}
-            <div>
-              <span className="section-label">Qui sommes-nous ?</span>
-              <p style={{ fontSize: '0.78rem', color: '#9ca3af', letterSpacing: '0.06em', textTransform: 'uppercase', marginBottom: '1rem' }}>
-                Association à but non lucratif · Fondée en 2020
-              </p>
-              <h2 className="heading-lg" style={{ marginBottom: '1.5rem' }}>
-                Une organisation<br />en pleine expansion
-              </h2>
-              <p style={{ color: '#4b5563', fontSize: '1rem', lineHeight: 1.85, marginBottom: '1.25rem' }}>
-                TEERRA AFRICA est une association à but non lucratif d&apos;intérêt général, née du souhait de professionnels
-                de la région Normandie en France de fédérer leurs actions pour apporter leur contribution à l&apos;écosystème
-                des affaires en Afrique.
-              </p>
-              <p style={{ color: '#4b5563', fontSize: '1rem', lineHeight: 1.85, marginBottom: '2.5rem' }}>
-                Notre approche est de favoriser l&apos;entrepreneuriat dans les domaines de l&apos;<strong>environnement</strong>, du <strong>climat</strong> et de
-                l&apos;<strong>agriculture</strong>, en plaçant la <strong style={{ color: '#2d6a4f' }}>Non-Violence</strong> au cœur de toutes nos actions.
-              </p>
+            {/* Photo 2 — au centre, plus grande */}
+            <div style={{
+              position: 'relative', height: 400,
+              borderRadius: '20px', overflow: 'hidden',
+              boxShadow: '0 20px 50px rgba(0,0,0,0.18)',
+              transform: 'rotate(0deg) translateY(0px)',
+            }}>
+              <Image src="/images/who-3.jpg" alt="Teerra Africa" fill className="object-cover" />
+            </div>
 
-              {/* Tags */}
-              <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.75rem', marginBottom: '2.5rem' }}>
-                {[
-                  { label: 'Normandie, France' },
-                  { label: "Afrique de l'Ouest" },
-                  { label: 'Afrique Australe' },
-                ].map((tag) => (
-                  <span
-                    key={tag.label}
-                    style={{
-                      display: 'inline-flex', alignItems: 'center', gap: '0.4rem',
-                      background: '#ffffff', color: '#374151',
-                      padding: '0.5rem 1rem', borderRadius: '99px',
-                      fontSize: '0.85rem', border: '1px solid #e5e7eb',
-                    }}
-                  >
-                    <IconMapPin size={14} color="#2d6a4f" />
-                    {tag.label}
-                  </span>
-                ))}
-              </div>
-
-              <Link
-                href="/a-propos"
-                style={{
-                  display: 'inline-flex', alignItems: 'center', gap: '0.5rem',
-                  padding: '0.875rem 1.75rem', borderRadius: '99px',
-                  background: '#2d6a4f', color: '#ffffff',
-                  fontWeight: 600, fontSize: '0.9rem',
-                  textDecoration: 'none', boxShadow: '0 6px 18px rgba(45,106,79,0.3)',
-                }}
-              >
-                En savoir plus
-                <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3"/>
-                </svg>
-              </Link>
+            {/* Photo 3 — décalée vers le bas */}
+            <div style={{
+              position: 'relative', height: 340,
+              borderRadius: '20px', overflow: 'hidden',
+              boxShadow: '0 16px 40px rgba(0,0,0,0.14)',
+              transform: 'rotate(2deg) translateY(20px)',
+            }}>
+              <Image src="/images/who-4.jpg" alt="Teerra Africa" fill className="object-cover" />
             </div>
           </div>
+
         </div>
       </section>
 
