@@ -35,7 +35,7 @@ export default function AProposPage() {
             À propos de TEERRA AFRICA
           </h1>
           <p style={{ color: 'rgba(255,255,255,0.75)', fontSize: '1.1rem', lineHeight: 1.75, maxWidth: 580, margin: '0 auto' }}>
-            Une organisation née d&apos;une conviction : que la préservation de l&apos;environnement et
+            Une organisation née d&apos;une conviction : la préservation de l&apos;environnement et
             l&apos;engagement collectif peuvent construire un avenir durable pour notre planète.
           </p>
         </div>
@@ -94,7 +94,7 @@ export default function AProposPage() {
 
             <div style={{ position: 'relative' }}>
               <div style={{ position: 'relative', height: 520, borderRadius: '24px', overflow: 'hidden', boxShadow: '0 24px 60px rgba(0,0,0,0.12)' }}>
-                <Image src="/images/hero-2.jpeg" alt="TEERRA AFRICA" fill className="object-cover" />
+                <Image src="/images/who-2.jpg" alt="TEERRA AFRICA" fill className="object-cover" />
               </div>
               <div style={{
                 position: 'absolute', bottom: -20, left: -20,
