@@ -281,7 +281,7 @@ export default function AProposPage() {
               Nous contacter
             </Link>
             <Link
-              href="/programmes"
+              href="/actualites"
               style={{
                 display: 'inline-flex', alignItems: 'center', gap: '0.5rem',
                 padding: '0.9rem 2rem', borderRadius: '99px',
@@ -289,7 +289,7 @@ export default function AProposPage() {
                 fontWeight: 600, fontSize: '0.9rem', textDecoration: 'none',
               }}
             >
-              Voir nos programmes
+              Voir nos actualités
             </Link>
           </div>
         </div>

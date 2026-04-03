@@ -1,20 +1,11 @@
-'use client';
+import type { Metadata } from 'next';
 
-import { useState } from 'react';
+export const metadata: Metadata = {
+  title: 'Contact',
+  description: 'Contactez TEERRA AFRICA — association engagée pour la préservation de l\'environnement.',
+};
 
 export default function ContactPage() {
-  const [form, setForm] = useState({ nom: '', email: '', sujet: '', message: '' });
-  const [sent, setSent] = useState(false);
-
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
-    setForm({ ...form, [e.target.name]: e.target.value });
-  };
-
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    setSent(true);
-  };
-
   return (
     <>
       {/* HERO */}
@@ -25,301 +16,161 @@ export default function ContactPage() {
       }}>
         <div style={{ position: 'absolute', top: -80, right: -80, width: 400, height: 400, background: '#b5832a', borderRadius: '50%', opacity: 0.08 }} />
         <div style={{ position: 'absolute', bottom: -60, left: -60, width: 280, height: 280, background: '#e9c46a', borderRadius: '50%', opacity: 0.07 }} />
-        <div className="container-wide" style={{ position: 'relative', textAlign: 'center' }}>
+        <div className="container-wide" style={{ position: 'relative', textAlign: 'center', display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
           <span className="section-label" style={{ color: '#e9c46a' }}>Échangeons</span>
-          <h1
-            style={{
-              fontFamily: 'var(--font-playfair), serif',
-              fontSize: 'clamp(2.5rem, 5vw, 4rem)',
-              fontWeight: 800, color: '#ffffff',
-              lineHeight: 1.1, marginBottom: '1.5rem',
-            }}
-          >
+          <h1 style={{
+            fontFamily: 'var(--font-playfair), serif',
+            fontSize: 'clamp(2.5rem, 5vw, 4rem)',
+            fontWeight: 800, color: '#ffffff',
+            lineHeight: 1.1, margin: '0 auto 1.5rem',
+          }}>
             Contactez-nous
           </h1>
           <p style={{ color: 'rgba(255,255,255,0.75)', fontSize: '1.05rem', lineHeight: 1.75, maxWidth: 520, margin: '0 auto' }}>
-            Vous avez un projet, une question ou vous souhaitez rejoindre notre réseau ?
+            Vous avez un projet, une question ou souhaitez rejoindre notre réseau ?
             Nous serons ravis d&apos;échanger avec vous.
           </p>
         </div>
       </section>
 
-      {/* MAIN */}
-      <section style={{ background: '#faf8f3', padding: '6rem 0' }}>
+      {/* COORDONNÉES */}
+      <section style={{ background: '#faf8f3', padding: '7rem 0' }}>
         <div className="container-wide">
-          <div style={{ display: 'grid', gridTemplateColumns: '2fr 3fr', gap: '4rem', alignItems: 'start' }}>
 
-            {/* INFO SIDE */}
-            <div>
-              <h2 style={{ fontSize: '1.5rem', fontWeight: 700, color: '#1b4332', marginBottom: '2rem' }}>
-                Informations de contact
-              </h2>
+          <div style={{ textAlign: 'center', marginBottom: '4rem' }}>
+            <span className="section-label">Nos coordonnées</span>
+            <h2 className="heading-lg" style={{ marginBottom: 0 }}>Entrons en contact</h2>
+            <div className="divider divider-center" />
+          </div>
 
-              <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem', marginBottom: '2.5rem' }}>
-                {[
-                  {
-                    icon: (
-                      <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/>
-                      </svg>
-                    ),
-                    label: 'Téléphone',
-                    value: '+33 7 84 24 02 43',
-                    href: 'tel:+33784240243',
-                    color: '#2d6a4f',
-                  },
-                  {
-                    icon: (
-                      <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/>
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/>
-                      </svg>
-                    ),
-                    label: 'Siège social',
-                    value: 'Normandie, France',
-                    sub: 'Interventions : Afrique de l\'Ouest & Australe',
-                    color: '#b5832a',
-                  },
-                  {
-                    icon: (
-                      <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/>
-                      </svg>
-                    ),
-                    label: 'Secteur',
-                    value: 'Conseil en environnement',
-                    color: '#52b788',
-                  },
-                ].map((c, i) => (
-                  <div
-                    key={i}
-                    style={{
-                      display: 'flex', gap: '1rem',
-                      background: '#ffffff', borderRadius: '16px',
-                      padding: '1.25rem 1.5rem',
-                      border: '1px solid #e5e7eb',
-                      boxShadow: '0 1px 6px rgba(0,0,0,0.04)',
-                    }}
-                  >
-                    <div style={{
-                      width: 44, height: 44, borderRadius: '12px',
-                      background: c.color, color: '#ffffff',
-                      display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0,
-                    }}>
-                      {c.icon}
-                    </div>
-                    <div>
-                      <p style={{ fontSize: '0.7rem', fontWeight: 700, color: '#b5832a', letterSpacing: '0.1em', textTransform: 'uppercase', marginBottom: '0.25rem' }}>
-                        {c.label}
-                      </p>
-                      {c.href ? (
-                        <a href={c.href} style={{ color: '#1b4332', fontWeight: 600, fontSize: '0.925rem', textDecoration: 'none' }}>
-                          {c.value}
-                        </a>
-                      ) : (
-                        <p style={{ color: '#1b4332', fontWeight: 600, fontSize: '0.925rem' }}>{c.value}</p>
-                      )}
-                      {'sub' in c && c.sub && (
-                        <p style={{ color: '#9ca3af', fontSize: '0.825rem', marginTop: '0.2rem' }}>{c.sub}</p>
-                      )}
-                    </div>
-                  </div>
-                ))}
-              </div>
-
-              {/* Réseaux */}
-              <div style={{ background: '#1b4332', borderRadius: '20px', padding: '1.75rem' }}>
-                <p style={{ color: '#ffffff', fontWeight: 700, fontSize: '0.95rem', marginBottom: '1.25rem' }}>
-                  Suivez-nous
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '1.75rem', maxWidth: 900, margin: '0 auto 5rem' }}>
+            {[
+              {
+                icon: (
+                  <svg width="22" height="22" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/>
+                  </svg>
+                ),
+                label: 'Téléphone',
+                value: '+33 7 84 24 02 43',
+                sub: 'Du lundi au vendredi',
+                href: 'tel:+33784240243',
+                accent: '#2d6a4f',
+              },
+              {
+                icon: (
+                  <svg width="22" height="22" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/>
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/>
+                  </svg>
+                ),
+                label: 'Siège social',
+                value: 'Normandie, France',
+                sub: 'Afrique de l\'Ouest & Australe',
+                accent: '#b5832a',
+              },
+              {
+                icon: (
+                  <svg width="22" height="22" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9"/>
+                  </svg>
+                ),
+                label: 'Secteur',
+                value: 'Environnement & Durabilité',
+                sub: 'Association à but non lucratif',
+                accent: '#52b788',
+              },
+            ].map((c, i) => (
+              <div key={i} style={{
+                background: '#ffffff', borderRadius: '24px',
+                padding: '2.5rem 2rem', textAlign: 'center',
+                boxShadow: '0 4px 24px rgba(0,0,0,0.07)',
+              }}>
+                <div style={{
+                  width: 60, height: 60, borderRadius: '18px',
+                  background: `${c.accent}18`,
+                  display: 'flex', alignItems: 'center', justifyContent: 'center',
+                  margin: '0 auto 1.5rem', color: c.accent,
+                }}>
+                  {c.icon}
+                </div>
+                <p style={{ fontSize: '0.7rem', fontWeight: 700, color: '#9ca3af', letterSpacing: '0.12em', textTransform: 'uppercase', marginBottom: '0.5rem' }}>
+                  {c.label}
                 </p>
-                <div style={{ display: 'flex', flexDirection: 'column', gap: '0.75rem' }}>
-                  {[
-                    {
-                      href: 'https://www.facebook.com/share/1HPuMCR7Nz/?mibextid=wwXIfr',
-                      label: 'Facebook',
-                      bg: '#1877f2',
-                    },
-                    {
-                      href: 'https://www.linkedin.com/company/teerraafrica/',
-                      label: 'LinkedIn',
-                      bg: '#0a66c2',
-                    },
-                  ].map((s) => (
-                    <a
-                      key={s.label}
-                      href={s.href}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      style={{
-                        display: 'flex', alignItems: 'center', justifyContent: 'center',
-                        padding: '0.75rem', borderRadius: '12px',
-                        background: s.bg, color: '#ffffff',
-                        fontWeight: 600, fontSize: '0.875rem', textDecoration: 'none',
-                      }}
-                    >
-                      {s.label}
-                    </a>
-                  ))}
-                </div>
+                {c.href ? (
+                  <a href={c.href} style={{ fontSize: '1rem', fontWeight: 700, color: '#1b4332', textDecoration: 'none', display: 'block', marginBottom: '0.4rem' }}>
+                    {c.value}
+                  </a>
+                ) : (
+                  <p style={{ fontSize: '1rem', fontWeight: 700, color: '#1b4332', marginBottom: '0.4rem' }}>{c.value}</p>
+                )}
+                <p style={{ fontSize: '0.825rem', color: '#9ca3af' }}>{c.sub}</p>
               </div>
-            </div>
+            ))}
+          </div>
 
-            {/* FORM */}
-            <div style={{
-              background: '#ffffff', borderRadius: '28px',
-              padding: '3rem', border: '1px solid #e5e7eb',
-              boxShadow: '0 4px 24px rgba(0,0,0,0.07)',
-            }}>
-              <h2 style={{ fontSize: '1.5rem', fontWeight: 700, color: '#1b4332', marginBottom: '0.5rem' }}>
-                Envoyez-nous un message
-              </h2>
-              <p style={{ color: '#9ca3af', fontSize: '0.9rem', marginBottom: '2.5rem' }}>
-                Nous vous répondrons dans les plus brefs délais.
-              </p>
-
-              {sent ? (
-                <div style={{ textAlign: 'center', padding: '3rem 0' }}>
-                  <div style={{
-                    width: 80, height: 80, borderRadius: '50%',
-                    background: 'rgba(45,106,79,0.1)',
-                    display: 'flex', alignItems: 'center', justifyContent: 'center',
-                    margin: '0 auto 1.5rem',
-                  }}>
-                    <svg style={{ width: 36, height: 36, color: '#2d6a4f' }} fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7"/>
-                    </svg>
-                  </div>
-                  <h3 style={{ fontSize: '1.25rem', fontWeight: 700, color: '#1b4332', marginBottom: '0.75rem' }}>
-                    Message envoyé !
-                  </h3>
-                  <p style={{ color: '#6b7280', marginBottom: '2rem', fontSize: '0.925rem' }}>
-                    Merci {form.nom}, nous vous répondrons très bientôt.
-                  </p>
-                  <button
-                    onClick={() => { setSent(false); setForm({ nom: '', email: '', sujet: '', message: '' }); }}
-                    style={{
-                      padding: '0.75rem 1.75rem', borderRadius: '99px',
-                      background: '#2d6a4f', color: '#ffffff',
-                      fontWeight: 600, fontSize: '0.875rem', border: 'none', cursor: 'pointer',
-                    }}
-                  >
-                    Nouveau message
-                  </button>
-                </div>
-              ) : (
-                <form onSubmit={handleSubmit}>
-                  <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1.25rem', marginBottom: '1.25rem' }}>
-                    {[
-                      { id: 'nom', label: 'Nom complet', type: 'text', placeholder: 'Jean Dupont' },
-                      { id: 'email', label: 'Email', type: 'email', placeholder: 'jean@exemple.com' },
-                    ].map((f) => (
-                      <div key={f.id}>
-                        <label htmlFor={f.id} style={{ display: 'block', fontSize: '0.8rem', fontWeight: 600, color: '#374151', marginBottom: '0.5rem' }}>
-                          {f.label} <span style={{ color: '#ef4444' }}>*</span>
-                        </label>
-                        <input
-                          type={f.type}
-                          id={f.id}
-                          name={f.id}
-                          value={form[f.id as keyof typeof form]}
-                          onChange={handleChange}
-                          required
-                          placeholder={f.placeholder}
-                          style={{
-                            width: '100%', padding: '0.75rem 1rem',
-                            border: '1.5px solid #e5e7eb', borderRadius: '12px',
-                            fontSize: '0.9rem', outline: 'none',
-                            background: '#faf8f3',
-                            fontFamily: 'inherit',
-                          }}
-                        />
-                      </div>
-                    ))}
-                  </div>
-
-                  <div style={{ marginBottom: '1.25rem' }}>
-                    <label htmlFor="sujet" style={{ display: 'block', fontSize: '0.8rem', fontWeight: 600, color: '#374151', marginBottom: '0.5rem' }}>
-                      Sujet <span style={{ color: '#ef4444' }}>*</span>
-                    </label>
-                    <select
-                      id="sujet"
-                      name="sujet"
-                      value={form.sujet}
-                      onChange={handleChange}
-                      required
-                      style={{
-                        width: '100%', padding: '0.75rem 1rem',
-                        border: '1.5px solid #e5e7eb', borderRadius: '12px',
-                        fontSize: '0.9rem', outline: 'none',
-                        background: '#faf8f3', color: '#374151',
-                        fontFamily: 'inherit',
-                      }}
-                    >
-                      <option value="">Sélectionnez un sujet</option>
-                      <option value="partenariat">Proposition de partenariat</option>
-                      <option value="projet">Soumettre un projet</option>
-                      <option value="benevole">Devenir bénévole</option>
-                      <option value="information">Demande d&apos;information</option>
-                      <option value="media">Presse / Médias</option>
-                      <option value="autre">Autre</option>
-                    </select>
-                  </div>
-
-                  <div style={{ marginBottom: '2rem' }}>
-                    <label htmlFor="message" style={{ display: 'block', fontSize: '0.8rem', fontWeight: 600, color: '#374151', marginBottom: '0.5rem' }}>
-                      Message <span style={{ color: '#ef4444' }}>*</span>
-                    </label>
-                    <textarea
-                      id="message"
-                      name="message"
-                      value={form.message}
-                      onChange={handleChange}
-                      required
-                      rows={6}
-                      placeholder="Décrivez votre demande, projet ou question..."
-                      style={{
-                        width: '100%', padding: '0.875rem 1rem',
-                        border: '1.5px solid #e5e7eb', borderRadius: '12px',
-                        fontSize: '0.9rem', outline: 'none',
-                        background: '#faf8f3', resize: 'vertical',
-                        fontFamily: 'inherit', lineHeight: 1.7,
-                      }}
-                    />
-                  </div>
-
-                  <button
-                    type="submit"
-                    style={{
-                      width: '100%', padding: '1rem',
-                      borderRadius: '14px', border: 'none',
-                      background: 'linear-gradient(135deg, #2d6a4f, #1b4332)',
-                      color: '#ffffff', fontWeight: 700, fontSize: '0.95rem',
-                      cursor: 'pointer',
-                      boxShadow: '0 8px 24px rgba(45,106,79,0.3)',
-                      display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '0.5rem',
-                      fontFamily: 'inherit',
-                    }}
-                  >
-                    Envoyer le message
-                    <svg style={{ width: 18, height: 18 }} fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"/>
-                    </svg>
-                  </button>
-                </form>
-              )}
+          {/* Réseaux sociaux */}
+          <div style={{ textAlign: 'center' }}>
+            <p style={{ fontSize: '0.72rem', fontWeight: 700, color: '#2d6a4f', letterSpacing: '0.15em', textTransform: 'uppercase', marginBottom: '1.5rem' }}>
+              Suivez-nous
+            </p>
+            <div style={{ display: 'flex', gap: '1rem', justifyContent: 'center' }}>
+              <a
+                href="https://www.facebook.com/share/1HPuMCR7Nz/?mibextid=wwXIfr"
+                target="_blank"
+                rel="noopener noreferrer"
+                style={{
+                  display: 'inline-flex', alignItems: 'center', gap: '0.75rem',
+                  padding: '0.875rem 1.75rem', borderRadius: '99px',
+                  background: '#1877f2', color: '#ffffff',
+                  fontWeight: 600, fontSize: '0.9rem', textDecoration: 'none',
+                  boxShadow: '0 6px 20px rgba(24,119,242,0.3)',
+                }}
+              >
+                <svg width="18" height="18" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+                </svg>
+                Facebook
+              </a>
+              <a
+                href="https://www.linkedin.com/company/teerraafrica/"
+                target="_blank"
+                rel="noopener noreferrer"
+                style={{
+                  display: 'inline-flex', alignItems: 'center', gap: '0.75rem',
+                  padding: '0.875rem 1.75rem', borderRadius: '99px',
+                  background: '#0077b5', color: '#ffffff',
+                  fontWeight: 600, fontSize: '0.9rem', textDecoration: 'none',
+                  boxShadow: '0 6px 20px rgba(0,119,181,0.3)',
+                }}
+              >
+                <svg width="18" height="18" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+                </svg>
+                LinkedIn
+              </a>
             </div>
           </div>
+
         </div>
       </section>
 
-      {/* REJOINDRE */}
-      <section style={{ background: '#1b4332', padding: '4rem 0' }}>
+      {/* CTA */}
+      <section style={{ background: '#1b4332', padding: '5rem 0' }}>
         <div className="container-wide" style={{ textAlign: 'center' }}>
-          <h2 style={{ color: '#ffffff', fontSize: '1.5rem', fontWeight: 700, marginBottom: '0.75rem' }}>
-            Rejoignez notre réseau
+          <p style={{ color: '#e9c46a', fontSize: '0.7rem', fontWeight: 700, letterSpacing: '0.2em', textTransform: 'uppercase', marginBottom: '1rem' }}>
+            Rejoignez-nous
+          </p>
+          <h2 style={{
+            fontFamily: 'var(--font-playfair), serif',
+            fontSize: 'clamp(1.75rem, 3vw, 2.5rem)',
+            fontWeight: 800, color: '#ffffff',
+            lineHeight: 1.2, marginBottom: '1rem',
+          }}>
+            Ensemble pour un avenir durable
           </h2>
-          <p style={{ color: 'rgba(255,255,255,0.65)', fontSize: '0.975rem', maxWidth: 520, margin: '0 auto' }}>
-            Spécialistes de l&apos;environnement, experts en éducation, porteurs de projets — notre passion et nos compétences font la différence.
+          <p style={{ color: 'rgba(255,255,255,0.6)', fontSize: '0.975rem', maxWidth: 500, margin: '0 auto' }}>
+            Spécialistes de l&apos;environnement, experts en transition écologique, porteurs de projets — rejoignez notre réseau.
           </p>
         </div>
       </section>
