@@ -14,7 +14,7 @@ export default function HomePage() {
       <section style={{ position: 'relative', minHeight: '100vh', display: 'flex', alignItems: 'center' }}>
         {/* Background */}
         <div style={{ position: 'absolute', inset: 0, zIndex: 0 }}>
-          <Image src="/images/hero-1.jpeg" alt="Teerra Africa" fill className="object-cover" priority />
+          <Image src="/images/image-environnement.jpg" alt="Teerra Africa environnement" fill className="object-cover" priority />
           <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(135deg, rgba(27,67,50,0.93) 0%, rgba(45,106,79,0.80) 60%, rgba(27,67,50,0.88) 100%)' }} />
         </div>
 
@@ -149,9 +149,7 @@ export default function HomePage() {
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(180px, 1fr))', gap: '1.5rem' }}>
             {[
               { val: '2020', label: 'Année de fondation' },
-              { val: '170+', label: 'Jeunes formés au numérique' },
               { val: '20+', label: 'Projets en cours' },
-              { val: '2', label: 'Zones d\'intervention' },
             ].map((s, i) => (
               <div
                 key={i}
