@@ -16,7 +16,7 @@ export default function Footer() {
 
       {/* Contenu principal */}
       <div className="container-wide" style={{ paddingTop: '5rem', paddingBottom: '4rem' }}>
-        <div style={{ display: 'grid', gridTemplateColumns: '1.6fr 1fr 1fr 1fr', gap: '3rem', alignItems: 'start' }}>
+        <div className="grid-4-to-1" style={{ display: 'grid', gridTemplateColumns: '1.6fr 1fr 1fr 1fr', gap: '3rem', alignItems: 'start' }}>
 
           {/* Bloc marque */}
           <div>

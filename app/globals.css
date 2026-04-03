@@ -123,7 +123,14 @@ html {
 .reveal-delay-4 { transition-delay: 0.4s; }
 
 /* ─── Responsive grids ─── */
+/* ─── Navbar responsive ─── */
+.desktop-nav { display: flex; }
+.mobile-burger { display: none !important; }
+.mobile-menu { display: block; }
+
 @media (max-width: 768px) {
+  .desktop-nav { display: none !important; }
+  .mobile-burger { display: flex !important; }
 
   /* Grilles 2 colonnes → 1 colonne */
   .grid-2-to-1 {
@@ -140,10 +147,11 @@ html {
     grid-template-columns: 1fr !important;
   }
 
-  /* Photos staggered — annule le décalage sur mobile */
-  .stagger-card {
+  /* Photos staggered — annule rotate + offset sur mobile */
+  .stagger-card > * > div {
     transform: none !important;
     animation: none !important;
+    height: 260px !important;
   }
 
   /* Sections padding réduit sur mobile */
