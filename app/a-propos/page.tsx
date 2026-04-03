@@ -95,15 +95,6 @@ export default function AProposPage() {
               <div style={{ position: 'relative', height: 520, borderRadius: '24px', overflow: 'hidden', boxShadow: '0 24px 60px rgba(0,0,0,0.12)' }}>
                 <Image src="/images/who-2.jpg" alt="TEERRA AFRICA" fill className="object-cover" />
               </div>
-              <div style={{
-                position: 'absolute', bottom: -20, left: -20,
-                background: '#1b4332', color: '#fff',
-                borderRadius: '20px', padding: '1.5rem 1.75rem',
-                boxShadow: '0 12px 30px rgba(0,0,0,0.25)',
-              }}>
-                <p style={{ fontSize: '2.25rem', fontWeight: 900, color: '#e9c46a', lineHeight: 1 }}>170+</p>
-                <p style={{ fontSize: '0.8rem', marginTop: '0.5rem', color: '#d1fae5' }}>Jeunes formés</p>
-              </div>
             </div>
           </div>
         </div>
