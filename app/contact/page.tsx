@@ -9,7 +9,7 @@ export default function ContactPage() {
   return (
     <>
       {/* HERO */}
-      <section style={{
+      <section className="hero-section" style={{
         paddingTop: '9rem', paddingBottom: '6rem',
         background: 'linear-gradient(135deg, #1b4332 0%, #2d6a4f 100%)',
         position: 'relative', overflow: 'hidden',
