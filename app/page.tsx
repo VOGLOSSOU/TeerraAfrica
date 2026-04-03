@@ -3,6 +3,7 @@ import Link from 'next/link';
 import {
   IconGlobe, IconLeaf, IconTree, IconMapPin,
 } from './components/Icons';
+import { posts } from './actualites/data';
 
 export default function HomePage() {
   return (
@@ -332,26 +333,103 @@ export default function HomePage() {
           ACTUALITÉS
       ═══════════════════════════════════════ */}
       <section style={{ background: '#faf8f3', padding: '7rem 0' }}>
-        <div className="container-wide" style={{ textAlign: 'center' }}>
-          <span className="section-label">Sur le terrain</span>
-          <h2 className="heading-lg" style={{ marginBottom: '1rem' }}>Actualités récentes</h2>
-          <p style={{ color: '#6b7280', fontSize: '1rem', marginBottom: '2.5rem' }}>
-            Les actualités environnementales arrivent bientôt.
-          </p>
-          <Link
-            href="/actualites"
-            style={{
-              display: 'inline-flex', alignItems: 'center', gap: '0.4rem',
-              color: '#2d6a4f', fontWeight: 600, fontSize: '0.875rem',
-              textDecoration: 'none', border: '1.5px solid #2d6a4f',
-              padding: '0.6rem 1.25rem', borderRadius: '99px',
-            }}
-          >
-            Voir toutes les actualités
-            <svg width="14" height="14" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3"/>
-            </svg>
-          </Link>
+        <div className="container-wide">
+          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-end', marginBottom: '3.5rem', flexWrap: 'wrap', gap: '1rem' }}>
+            <div>
+              <span className="section-label">Sur le terrain</span>
+              <h2 className="heading-lg" style={{ marginBottom: 0 }}>Actualités récentes</h2>
+            </div>
+            <Link
+              href="/actualites"
+              style={{
+                display: 'inline-flex', alignItems: 'center', gap: '0.4rem',
+                color: '#2d6a4f', fontWeight: 600, fontSize: '0.875rem',
+                textDecoration: 'none', border: '1.5px solid #2d6a4f',
+                padding: '0.6rem 1.25rem', borderRadius: '99px',
+              }}
+            >
+              Voir tout
+              <svg width="14" height="14" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+              </svg>
+            </Link>
+          </div>
+
+          <style>{`
+            @keyframes float-0 {
+              0%, 100% { transform: translateY(0px); }
+              50% { transform: translateY(-14px); }
+            }
+            @keyframes float-1 {
+              0%, 100% { transform: translateY(20px); }
+              50% { transform: translateY(6px); }
+            }
+            @keyframes float-2 {
+              0%, 100% { transform: translateY(8px); }
+              50% { transform: translateY(-6px); }
+            }
+          `}</style>
+
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '2rem', alignItems: 'start', paddingBottom: '2rem' }}>
+            {[
+              { id: 'parbruniere-preservation-zones-humides', anim: 'float-0', delay: '0s' },
+              { id: 'so-ava-tresor-naturel-a-preserver', anim: 'float-1', delay: '0.4s' },
+              { id: 'erable-a-sucre-mission-francophonie', anim: 'float-2', delay: '0.8s' },
+            ].map(({ id, anim, delay }, i) => {
+              const post = posts.find(p => p.id === id)!;
+              return (
+                <Link key={i} href={`/actualites/${post.id}`} style={{ textDecoration: 'none', display: 'block',
+                  animation: `${anim} 4s ease-in-out infinite`,
+                  animationDelay: delay,
+                }}>
+                  <div className="card" style={{
+                    background: '#ffffff', borderRadius: '24px', overflow: 'hidden',
+                    boxShadow: '0 8px 36px rgba(0,0,0,0.1)',
+                  }}>
+                    <div style={{ position: 'relative', height: 230, overflow: 'hidden' }}>
+                      <Image src={post.images[0]} alt={post.title} fill className="object-cover" />
+                      <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to top, rgba(27,67,50,0.55) 0%, transparent 55%)' }} />
+                      <span style={{
+                        position: 'absolute', top: '1rem', left: '1rem',
+                        background: post.tagColor, color: '#ffffff',
+                        fontSize: '0.7rem', fontWeight: 700, letterSpacing: '0.06em',
+                        padding: '0.35rem 0.875rem', borderRadius: '99px',
+                      }}>
+                        {post.tag}
+                      </span>
+                    </div>
+                    <div style={{ padding: '1.75rem' }}>
+                      <p style={{ color: '#9ca3af', fontSize: '0.78rem', marginBottom: '0.5rem' }}>{post.lieu}</p>
+                      <h3 style={{
+                        fontSize: '1rem', fontWeight: 700, color: '#1b4332',
+                        marginBottom: '0.875rem', lineHeight: 1.45,
+                        display: '-webkit-box', WebkitLineClamp: 2,
+                        WebkitBoxOrient: 'vertical' as const, overflow: 'hidden',
+                      }}>
+                        {post.title}
+                      </h3>
+                      <p style={{
+                        color: '#6b7280', fontSize: '0.875rem', lineHeight: 1.7, marginBottom: '1.25rem',
+                        display: '-webkit-box', WebkitLineClamp: 2,
+                        WebkitBoxOrient: 'vertical' as const, overflow: 'hidden',
+                      }}>
+                        {post.intro}
+                      </p>
+                      <span style={{
+                        display: 'inline-flex', alignItems: 'center', gap: '0.4rem',
+                        color: '#2d6a4f', fontWeight: 600, fontSize: '0.85rem',
+                      }}>
+                        Voir les détails
+                        <svg width="14" height="14" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+                        </svg>
+                      </span>
+                    </div>
+                  </div>
+                </Link>
+              );
+            })}
+          </div>
         </div>
       </section>
 
