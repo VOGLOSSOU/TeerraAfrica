@@ -112,37 +112,43 @@ export default function AProposPage() {
 
       {/* PHILOSOPHIE */}
       <section style={{
-        background: '#1b4332', padding: '7rem 0',
+        background: '#1b4332', padding: '6rem 0',
         position: 'relative', overflow: 'hidden',
       }}>
         <div style={{ position: 'absolute', inset: 0, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-          <div style={{ width: 700, height: 700, background: '#2d6a4f', borderRadius: '50%', opacity: 0.2 }} />
+          <div style={{ width: 700, height: 700, background: '#2d6a4f', borderRadius: '50%', opacity: 0.15 }} />
         </div>
-        <div className="container-wide" style={{ position: 'relative', textAlign: 'center', maxWidth: 800, margin: '0 auto' }}>
-          <span className="section-label" style={{ color: '#e9c46a' }}>Notre philosophie</span>
-          <h2 style={{
-            fontFamily: 'var(--font-playfair), serif',
-            fontSize: 'clamp(2rem, 4vw, 3rem)',
-            fontWeight: 800, color: '#ffffff',
-            lineHeight: 1.2, marginBottom: '2rem',
+        <div className="container-wide" style={{ position: 'relative' }}>
+          <div style={{
+            display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)',
+            gap: '1.5rem',
           }}>
-            La Non-Violence,<br />un choix de vie
-          </h2>
-          <blockquote style={{
-            fontSize: 'clamp(1.1rem, 2vw, 1.35rem)',
-            color: 'rgba(255,255,255,0.85)',
-            lineHeight: 1.75, fontStyle: 'italic',
-            borderLeft: '4px solid #b5832a',
-            paddingLeft: '2rem', textAlign: 'left',
-            marginBottom: '2.5rem',
-          }}>
-            &ldquo;La NON-VIOLENCE est au cœur de nos actions. Elle nous amène à promouvoir une organisation
-            sociale et politique à visage humain, fondée sur une démocratie plus participative et la solidarité internationale.&rdquo;
-          </blockquote>
-          <p style={{ color: 'rgba(255,255,255,0.65)', lineHeight: 1.85, fontSize: '0.975rem' }}>
-            L&apos;action non-violente vise à transformer nos sociétés vers un bien-vivre pour toutes et tous — en promouvant
-            la redécouverte d&apos;un sens communautaire, l&apos;autogestion des espaces collectifs et la responsabilité écologique.
-          </p>
+            {[
+              { num: '01', title: 'Préserver', desc: 'Protéger les écosystèmes, la biodiversité et les ressources naturelles pour les générations futures.' },
+              { num: '02', title: 'Agir', desc: 'Intervenir concrètement sur le terrain avec des projets environnementaux à impact mesurable.' },
+              { num: '03', title: 'Transmettre', desc: 'Sensibiliser et former les communautés aux enjeux climatiques et écologiques.' },
+            ].map((item, i) => (
+              <div key={i} style={{
+                background: 'rgba(255,255,255,0.05)',
+                borderRadius: '20px',
+                padding: '2.5rem 2rem',
+                backdropFilter: 'blur(8px)',
+              }}>
+                <p style={{
+                  fontSize: '3rem', fontWeight: 900,
+                  color: 'rgba(233,196,106,0.2)',
+                  lineHeight: 1, marginBottom: '1.25rem',
+                  fontFamily: 'var(--font-playfair), serif',
+                }}>{item.num}</p>
+                <h3 style={{
+                  fontSize: '1.3rem', fontWeight: 800,
+                  color: '#ffffff', marginBottom: '0.875rem',
+                  fontFamily: 'var(--font-playfair), serif',
+                }}>{item.title}</h3>
+                <p style={{ color: 'rgba(255,255,255,0.6)', fontSize: '0.9rem', lineHeight: 1.75 }}>{item.desc}</p>
+              </div>
+            ))}
+          </div>
         </div>
       </section>
 
