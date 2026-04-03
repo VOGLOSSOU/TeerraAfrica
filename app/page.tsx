@@ -1,8 +1,7 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import {
-  IconGlobe, IconBook, IconLeaf, IconPeace,
-  IconScale, IconTree, IconBriefcase, IconMapPin,
+  IconGlobe, IconLeaf, IconTree, IconMapPin,
 } from './components/Icons';
 
 export default function HomePage() {
@@ -169,57 +168,6 @@ export default function HomePage() {
       </section>
 
       {/* ═══════════════════════════════════════
-          MISSIONS
-      ═══════════════════════════════════════ */}
-      <section style={{ background: '#ffffff', padding: '7rem 0' }}>
-        <div className="container-wide">
-          {/* Header */}
-          <div style={{ textAlign: 'center', marginBottom: '4rem' }}>
-            <span className="section-label">Ce que nous faisons</span>
-            <h2 className="heading-lg" style={{ marginBottom: 0 }}>Nos Missions</h2>
-            <div className="divider divider-center"></div>
-          </div>
-
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '1.75rem' }}>
-            {/* Carte 1 — principale */}
-            <div className="card" style={{ background: '#ffffff', borderRadius: '24px', padding: '2.5rem', boxShadow: '0 4px 28px rgba(0,0,0,0.07)' }}>
-              <div style={{ width: 52, height: 52, borderRadius: '14px', background: 'rgba(45,106,79,0.08)', display: 'flex', alignItems: 'center', justifyContent: 'center', marginBottom: '1.75rem' }}>
-                <IconGlobe size={24} color="#2d6a4f" />
-              </div>
-              <h3 style={{ fontSize: '1.1rem', fontWeight: 700, color: '#1b4332', marginBottom: '0.875rem' }}>Transition Écologique</h3>
-              <p style={{ color: '#6b7280', fontSize: '0.9rem', lineHeight: 1.75 }}>Soutenir la préservation des ressources naturelles et promouvoir des pratiques durables pour les générations futures.</p>
-            </div>
-
-            {/* Carte 2 — principale */}
-            <div className="card" style={{ background: '#ffffff', borderRadius: '24px', padding: '2.5rem', boxShadow: '0 4px 28px rgba(0,0,0,0.07)' }}>
-              <div style={{ width: 52, height: 52, borderRadius: '14px', background: 'rgba(82,183,136,0.08)', display: 'flex', alignItems: 'center', justifyContent: 'center', marginBottom: '1.75rem' }}>
-                <IconLeaf size={24} color="#52b788" />
-              </div>
-              <h3 style={{ fontSize: '1.1rem', fontWeight: 700, color: '#1b4332', marginBottom: '0.875rem' }}>Entrepreneuriat Vert</h3>
-              <p style={{ color: '#6b7280', fontSize: '0.9rem', lineHeight: 1.75 }}>Accompagner les porteurs de projets innovants dans les secteurs de l&apos;environnement et de l&apos;agriculture durable.</p>
-            </div>
-
-            {/* Carte 3 — second plan */}
-            <div className="card" style={{ background: '#f9fafb', borderRadius: '24px', padding: '2.5rem', boxShadow: '0 2px 14px rgba(0,0,0,0.04)' }}>
-              <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', marginBottom: '1.75rem' }}>
-                <div style={{ width: 44, height: 44, borderRadius: '12px', background: 'rgba(156,163,175,0.12)', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-                  <IconBook size={20} color="#9ca3af" />
-                </div>
-                <div style={{ width: 44, height: 44, borderRadius: '12px', background: 'rgba(156,163,175,0.12)', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-                  <IconPeace size={20} color="#9ca3af" />
-                </div>
-              </div>
-              <div style={{ display: 'inline-block', background: '#f3f4f6', borderRadius: '99px', padding: '0.2rem 0.75rem', marginBottom: '0.875rem' }}>
-                <span style={{ fontSize: '0.7rem', color: '#9ca3af', fontWeight: 600, letterSpacing: '0.06em', textTransform: 'uppercase' }}>Volets complémentaires</span>
-              </div>
-              <h3 style={{ fontSize: '1.05rem', fontWeight: 700, color: '#9ca3af', marginBottom: '0.875rem' }}>Éducation & Non-Violence</h3>
-              <p style={{ color: '#9ca3af', fontSize: '0.875rem', lineHeight: 1.75 }}>Former les communautés aux enjeux climatiques et agir selon les principes de non-violence pour un développement solidaire.</p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* ═══════════════════════════════════════
           À PROPOS
       ═══════════════════════════════════════ */}
       <section style={{ background: '#faf8f3', padding: '7rem 0' }}>
@@ -320,6 +268,65 @@ export default function HomePage() {
         </div>
       </section>
 
+      {/* ═══════════════════════════════════════
+          MISSIONS
+      ═══════════════════════════════════════ */}
+      <section style={{ background: '#ffffff', padding: '7rem 0' }}>
+        <div className="container-wide">
+          <div style={{ textAlign: 'center', marginBottom: '4rem' }}>
+            <span className="section-label">Ce que nous faisons</span>
+            <h2 className="heading-lg" style={{ marginBottom: '1rem' }}>Nos Missions</h2>
+            <p style={{ color: '#6b7280', fontSize: '1rem', lineHeight: 1.75, maxWidth: 560, margin: '0 auto' }}>
+              TEERRA AFRICA agit concrètement pour la préservation de l&apos;environnement à travers quatre axes d&apos;intervention complémentaires.
+            </p>
+            <div className="divider divider-center"></div>
+          </div>
+
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(260px, 1fr))', gap: '1.75rem' }}>
+            {[
+              {
+                icon: <IconGlobe size={24} color="#2d6a4f" />,
+                accentLight: 'rgba(45,106,79,0.08)',
+                title: 'Transition Écologique',
+                desc: 'Accompagner les territoires et les communautés vers des pratiques respectueuses de l\'environnement et réduire l\'empreinte écologique des activités humaines.',
+              },
+              {
+                icon: <IconLeaf size={24} color="#52b788" />,
+                accentLight: 'rgba(82,183,136,0.08)',
+                title: 'Préservation de la Biodiversité',
+                desc: 'Protéger les écosystèmes naturels, les espèces végétales et animales menacées, et restaurer les milieux dégradés par l\'activité humaine.',
+              },
+              {
+                icon: <IconTree size={24} color="#b5832a" />,
+                accentLight: 'rgba(181,131,42,0.08)',
+                title: 'Agro-écologie & Agriculture Durable',
+                desc: 'Promouvoir des pratiques agricoles durables qui respectent les sols, favorisent la biodiversité et assurent la souveraineté alimentaire des communautés.',
+              },
+            ].map((m, i) => (
+              <div
+                key={i}
+                className="card"
+                style={{
+                  background: '#ffffff', borderRadius: '24px',
+                  padding: '2.5rem',
+                  boxShadow: '0 4px 28px rgba(0,0,0,0.07)',
+                }}
+              >
+                <div style={{
+                  width: 52, height: 52, borderRadius: '14px',
+                  background: m.accentLight,
+                  display: 'flex', alignItems: 'center',
+                  justifyContent: 'center', marginBottom: '1.75rem',
+                }}>
+                  {m.icon}
+                </div>
+                <h3 style={{ fontSize: '1.05rem', fontWeight: 700, color: '#1b4332', marginBottom: '0.875rem' }}>{m.title}</h3>
+                <p style={{ color: '#6b7280', fontSize: '0.9rem', lineHeight: 1.8 }}>{m.desc}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
 
       {/* ═══════════════════════════════════════
           ACTUALITÉS
