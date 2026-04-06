@@ -169,8 +169,8 @@ export default function Footer() {
                   </svg>
                 </div>
                 <span style={{ color: '#6b7280', fontSize: '0.875rem', lineHeight: 1.7 }}>
-                  Normandie, France<br />
-                  Afrique de l&apos;Ouest<br />
+                  Normandie, France (siège)<br />
+                  Afrique de l&apos;Ouest · Bénin<br />
                   Afrique Australe
                 </span>
               </div>

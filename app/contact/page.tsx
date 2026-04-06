@@ -66,7 +66,7 @@ export default function ContactPage() {
                 ),
                 label: 'Siège social',
                 value: 'Normandie, France',
-                sub: 'Afrique de l\'Ouest & Australe',
+                sub: 'France · Afrique de l\'Ouest · Afrique Australe',
                 accent: '#b5832a',
               },
               {

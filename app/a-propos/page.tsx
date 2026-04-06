@@ -56,9 +56,9 @@ export default function AProposPage() {
                     l&apos;accompagnement à l&apos;entrepreneuriat innovant.
                   </p>
                   <p>
-                    L&apos;association est née en <strong>2020</strong> du souhait de plusieurs acteurs de la région <strong>Normandie en France</strong> de
-                    fédérer les actions dans le but de partager leurs expériences pour apporter leur contribution à
-                    l&apos;écosystème des affaires en Afrique.
+                    Fondée en <strong>2020</strong> et siégée en <strong>Normandie (France)</strong>, TEERRA AFRICA intervient aussi bien
+                    sur son territoire d&apos;implantation qu&apos;à travers l&apos;Afrique de l&apos;Ouest et Australe — la France
+                    étant elle-même l&apos;un de ses terrains d&apos;action.
                   </p>
                   <p>
                     Notre approche est de favoriser l&apos;entrepreneuriat dans les domaines de l&apos;<strong>environnement</strong>, du <strong>climat</strong> et de
@@ -195,7 +195,7 @@ export default function AProposPage() {
           <ScrollReveal delay={1}>
             <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: '1.5rem' }}>
               {[
-                { pays: 'France', detail: 'Normandie — Siège social' },
+                { pays: 'France', detail: 'Normandie — Siège & terrain d\'action' },
                 { pays: 'Bénin', detail: 'Bohicon, Sô-Ava, Cotonou' },
                 { pays: "Afrique de l'Ouest", detail: 'Villes intermédiaires et zones rurales' },
                 { pays: 'Afrique Australe', detail: 'Extension progressive' },

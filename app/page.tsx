@@ -190,8 +190,8 @@ export default function HomePage() {
                 Une organisation<br />en pleine expansion
               </h2>
               <p style={{ color: '#4b5563', fontSize: '1rem', lineHeight: 1.85, marginBottom: '1.25rem' }}>
-                TEERRA AFRICA est une association à but non lucratif d&apos;intérêt général, née du souhait de professionnels
-                de la région Normandie en France de fédérer leurs actions pour la préservation de l&apos;environnement.
+                TEERRA AFRICA est une association à but non lucratif d&apos;intérêt général, siégée en Normandie (France),
+                qui intervient aussi bien sur son territoire d&apos;implantation qu&apos;à travers le continent africain.
               </p>
               <p style={{ color: '#4b5563', fontSize: '1rem', lineHeight: 1.85, marginBottom: '2rem' }}>
                 Notre approche est de favoriser l&apos;entrepreneuriat dans les domaines de l&apos;<strong>environnement</strong>, du <strong>climat</strong> et de
@@ -199,7 +199,7 @@ export default function HomePage() {
               </p>
               <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.75rem', justifyContent: 'center', marginBottom: '2.5rem' }}>
                 {[
-                  { label: 'Normandie, France' },
+                  { label: 'France' },
                   { label: "Afrique de l'Ouest" },
                   { label: 'Afrique Australe' },
                 ].map((tag) => (
