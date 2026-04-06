@@ -50,7 +50,7 @@ export default function HomePage() {
           <p
             style={{
               color: 'rgba(255,255,255,0.8)',
-              fontSize: 'clamp(1rem, 2vw, 1.15rem)',
+              fontSize: 'clamp(1.15rem, 2.5vw, 1.45rem)',
               lineHeight: 1.8,
               maxWidth: 540,
               marginBottom: '2.75rem',
