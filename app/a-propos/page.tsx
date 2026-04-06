@@ -183,36 +183,83 @@ export default function AProposPage() {
       </section>
 
       {/* ZONES */}
-      <section style={{ background: '#ffffff', padding: '7rem 0' }}>
-        <div className="container-wide">
+      <section style={{ background: '#1b4332', padding: '7rem 0', position: 'relative', overflow: 'hidden' }}>
+        <div style={{ position: 'absolute', top: '-6rem', right: '-6rem', width: 420, height: 420, background: '#b5832a', borderRadius: '50%', opacity: 0.07 }} />
+        <div style={{ position: 'absolute', bottom: '-4rem', left: '-4rem', width: 300, height: 300, background: '#52b788', borderRadius: '50%', opacity: 0.08 }} />
+
+        <div className="container-wide" style={{ position: 'relative' }}>
           <ScrollReveal>
             <div style={{ textAlign: 'center', marginBottom: '4rem' }}>
-              <span className="section-label">Où nous intervenons</span>
-              <h2 className="heading-lg" style={{ marginBottom: 0 }}>Zones d&apos;intervention</h2>
-              <div className="divider divider-center"></div>
+              <span className="section-label" style={{ color: '#e9c46a' }}>Présence internationale</span>
+              <h2 className="heading-lg" style={{ color: '#ffffff', marginBottom: '1rem' }}>Zones d&apos;intervention</h2>
+              <p style={{ color: 'rgba(255,255,255,0.65)', fontSize: '1rem', lineHeight: 1.8, maxWidth: 560, margin: '0 auto' }}>
+                Siégée en France, TEERRA AFRICA est un mouvement en pleine expansion. Le réseau est actif
+                en <strong style={{ color: '#e9c46a' }}>France</strong> et en <strong style={{ color: '#e9c46a' }}>Afrique de l&apos;Ouest</strong>,
+                avec une ambition résolument mondiale.
+              </p>
+              <div className="divider divider-center" style={{ background: '#b5832a' }}></div>
             </div>
           </ScrollReveal>
+
           <ScrollReveal delay={1}>
-            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: '1.5rem' }}>
+            <div className="grid-2-to-1" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '2rem' }}>
               {[
-                { pays: 'France', detail: 'Normandie — Siège & terrain d\'action' },
-                { pays: 'Bénin', detail: 'Bohicon, Sô-Ava, Cotonou' },
-                { pays: "Afrique de l'Ouest", detail: 'Villes intermédiaires et zones rurales' },
-                { pays: 'Afrique Australe', detail: 'Extension progressive' },
+                {
+                  icon: (
+                    <svg width="28" height="28" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"/>
+                    </svg>
+                  ),
+                  zone: 'France',
+                  desc: 'Siège social basé en Normandie et territoire d\'action à part entière.',
+                  accent: '#b5832a',
+                },
+                {
+                  icon: (
+                    <svg width="28" height="28" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064"/>
+                    </svg>
+                  ),
+                  zone: 'Afrique de l\'Ouest',
+                  desc: 'Zone d\'intervention principale, avec des projets actifs au Bénin et dans la sous-région.',
+                  accent: '#52b788',
+                },
               ].map((z, i) => (
-                <div key={i} className="card" style={{
-                  background: '#faf8f3', padding: '2.5rem 1.5rem',
-                  borderRadius: '20px', textAlign: 'center',
-                  border: '1px solid #e5e7eb',
+                <div key={i} style={{
+                  background: 'rgba(255,255,255,0.06)',
+                  borderRadius: '24px',
+                  padding: '2.5rem',
+                  border: '1px solid rgba(255,255,255,0.1)',
+                  backdropFilter: 'blur(8px)',
+                  display: 'flex',
+                  gap: '1.5rem',
+                  alignItems: 'flex-start',
                 }}>
-                  <div style={{ width: 52, height: 52, background: '#2d6a4f', borderRadius: '50%', display: 'flex', alignItems: 'center', justifyContent: 'center', margin: '0 auto 1rem' }}>
-                    <IconMapPin size={24} color="#ffffff" />
+                  <div style={{
+                    width: 56, height: 56, borderRadius: '16px',
+                    background: z.accent, flexShrink: 0,
+                    display: 'flex', alignItems: 'center', justifyContent: 'center',
+                    color: '#ffffff',
+                  }}>
+                    {z.icon}
                   </div>
-                  <h3 style={{ fontSize: '1rem', fontWeight: 700, color: '#1b4332', marginBottom: '0.5rem' }}>{z.pays}</h3>
-                  <p style={{ color: '#6b7280', fontSize: '0.825rem' }}>{z.detail}</p>
+                  <div>
+                    <h3 style={{ fontSize: '1.2rem', fontWeight: 800, color: '#ffffff', marginBottom: '0.6rem' }}>
+                      {z.zone}
+                    </h3>
+                    <p style={{ color: 'rgba(255,255,255,0.6)', fontSize: '0.9rem', lineHeight: 1.75 }}>
+                      {z.desc}
+                    </p>
+                  </div>
                 </div>
               ))}
             </div>
+          </ScrollReveal>
+
+          <ScrollReveal delay={2}>
+            <p style={{ textAlign: 'center', marginTop: '3rem', color: 'rgba(255,255,255,0.4)', fontSize: '0.85rem', fontStyle: 'italic' }}>
+              Et bien d&apos;autres territoires à venir — le mouvement grandit.
+            </p>
           </ScrollReveal>
         </div>
       </section>
