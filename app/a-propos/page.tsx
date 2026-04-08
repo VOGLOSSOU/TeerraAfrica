@@ -5,6 +5,7 @@ import {
   IconUsers, IconLeaf, IconLightbulb, IconMapPin,
 } from '../components/Icons';
 import ScrollReveal from '../components/ScrollReveal';
+import ValeurCard from '../components/ValeurCard';
 
 export const metadata: Metadata = {
   title: 'À propos',
@@ -156,27 +157,24 @@ export default function AProposPage() {
           </ScrollReveal>
           <ScrollReveal delay={1}>
             <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))', gap: '1.75rem' }}>
-              {[
-                { icon: <IconLeaf size={24} color="#fff" />, title: 'Durabilité', desc: 'Promouvoir une économie circulaire respectueuse de l\'environnement pour les générations futures.' },
-                { icon: <IconLightbulb size={24} color="#fff" />, title: 'Innovation', desc: 'Encourager les projets expérimentaux et innovants pour lutter contre le changement climatique.' },
-                { icon: <IconUsers size={24} color="#fff" />, title: 'Solidarité', desc: 'Agir en synergie avec les communautés locales pour une gestion durable des ressources naturelles.' },
-              ].map((v, i) => (
-                <div key={i} className="card" style={{
-                  background: '#ffffff', borderRadius: '20px',
-                  padding: '2.25rem', border: '1px solid #e5e7eb',
-                  boxShadow: '0 2px 12px rgba(0,0,0,0.04)',
-                }}>
-                  <div style={{
-                    width: 52, height: 52, background: '#2d6a4f',
-                    borderRadius: '14px', display: 'flex', alignItems: 'center',
-                    justifyContent: 'center', marginBottom: '1.25rem',
-                  }}>
-                    {v.icon}
-                  </div>
-                  <h3 style={{ fontSize: '1rem', fontWeight: 700, color: '#1b4332', marginBottom: '0.75rem' }}>{v.title}</h3>
-                  <p style={{ color: '#6b7280', fontSize: '0.875rem', lineHeight: 1.75 }}>{v.desc}</p>
-                </div>
-              ))}
+              <ValeurCard
+                image="/images/values/durabilite.png"
+                icon={<IconLeaf size={24} color="#fff" />}
+                title="Durabilité"
+                desc="Promouvoir une économie circulaire respectueuse de l'environnement pour les générations futures."
+              />
+              <ValeurCard
+                image="/images/values/innovation.png"
+                icon={<IconLightbulb size={24} color="#fff" />}
+                title="Innovation"
+                desc="Encourager les projets expérimentaux et innovants pour lutter contre le changement climatique."
+              />
+              <ValeurCard
+                image="/images/values/solidarite.png"
+                icon={<IconUsers size={24} color="#fff" />}
+                title="Solidarité"
+                desc="Agir en synergie avec les communautés locales pour une gestion durable des ressources naturelles."
+              />
             </div>
           </ScrollReveal>
         </div>
