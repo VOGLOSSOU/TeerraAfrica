@@ -158,4 +158,60 @@ Apprendre à faire du vélo dans une vélo-école permet d'inscrire les séances
     ],
     partenaires: [],
   },
+  {
+    id: 'protect-protection-environnement',
+    categorie: 'realisation',
+    titre: 'PROTECT — Protection de l\'Environnement pour un Changement Total',
+    statut: 'réalisé',
+    tag: 'Renaturalisation',
+    tagColor: '#2d6a4f',
+    lieu: 'Département des Collines, Bénin',
+    date: '',
+    intro: 'Soutien à la mise en place d\'une zone de renaturalisation d\'un ancien site d\'exploitation de carrière de sable. Conservation de zones humides sur 30 000 m².',
+    content: `Soutien à la mise en place d'une zone de renaturalisation d'un ancien site d'exploitation de carrière de sable.
+
+Conservation de zones humides sur 30 000 m².`,
+    images: ['/images/realisations/img-re-4-1.png'],
+    partenaires: [],
+  },
+  {
+    id: 'territoirlab',
+    categorie: 'realisation',
+    titre: 'TerritoirLab',
+    statut: 'réalisé',
+    tag: 'Agriculture durable',
+    tagColor: '#b5832a',
+    lieu: 'Hauts-de-Seine, France',
+    date: '2018',
+    intro: 'Dégustation de produits locaux et soutien aux producteurs à travers la mise en avant des produits du terroir issus de l\'agriculture durable en France et en Afrique.',
+    content: `Dégustation de produits locaux. Soutien aux producteurs à travers la mise en avant des produits du terroir issus de l'agriculture durable en France et en Afrique.`,
+    images: ['/images/realisations/img-re-5-1.png'],
+    partenaires: [],
+  },
+  {
+    id: 'boost-agro',
+    categorie: 'realisation',
+    titre: 'Boost\'Agro',
+    statut: 'en-cours',
+    tag: 'Agroécologie',
+    tagColor: '#2d6a4f',
+    lieu: '',
+    date: '',
+    intro: 'Un dispositif d\'accompagnement et d\'accélération des PME de la filière agroécologique porté par TEERRA AFRICA.',
+    content: `Afin de soutenir la filière agricole, TEERRA AFRICA déploie Boost'Agro. Un dispositif d'accompagnement et d'accélération des PME de la filière agroécologique qui vise :
+
+- La Formation Agricole Participative des maraîchers
+- La Transformation Agro Alimentaire des produits
+- La commercialisation des produits`,
+    objectifs: [
+      'Priorité à l\'agroécologie pour préserver les ressources naturelles et construire un développement durable',
+      'Priorité aux méthodes participatives pour croiser les savoirs traditionnels et scientifiques et permettre aux agriculteurs de trouver eux-mêmes des solutions adaptées',
+      'Priorité à la structuration de filières pour assurer la pérennité des actions et l\'augmentation des revenus des producteurs',
+    ],
+    images: [
+      '/images/realisations/img-re-6-1.png',
+      '/images/realisations/img-re-6-2.png',
+    ],
+    partenaires: [],
+  },
 ];
