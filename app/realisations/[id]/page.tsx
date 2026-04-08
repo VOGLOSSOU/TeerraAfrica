@@ -23,61 +23,117 @@ export default async function ProjectDetailPage({ params }: { params: Promise<{ 
   const project = projects.find((p) => p.id === id);
   if (!project) notFound();
 
+  const hasImage = project.images.length > 0;
+
   return (
     <>
       {/* ═══════════════════════════════════════
           HERO
       ═══════════════════════════════════════ */}
-      <section style={{
-        position: 'relative', height: '65vh', minHeight: 460,
-        display: 'flex', alignItems: 'flex-end',
-      }}>
-        <Image
-          src={project.images[0]}
-          alt={project.titre}
-          fill
-          className="object-cover"
-          priority
-        />
-        <div style={{
-          position: 'absolute', inset: 0,
-          background: 'linear-gradient(to top, rgba(27,67,50,0.95) 0%, rgba(27,67,50,0.4) 55%, transparent 100%)',
-        }} />
-        <div className="container-wide" style={{ position: 'relative', paddingBottom: '3.5rem' }}>
-          <div style={{ display: 'flex', gap: '0.75rem', flexWrap: 'wrap', marginBottom: '1.25rem' }}>
-            <span style={{
-              background: project.tagColor, color: '#fff',
-              fontSize: '0.72rem', fontWeight: 700, letterSpacing: '0.08em',
-              padding: '0.35rem 1rem', borderRadius: '99px',
+      {hasImage ? (
+        <section style={{
+          position: 'relative', height: '65vh', minHeight: 460,
+          display: 'flex', alignItems: 'flex-end',
+        }}>
+          <Image
+            src={project.images[0]}
+            alt={project.titre}
+            fill
+            className="object-cover"
+            priority
+          />
+          <div style={{
+            position: 'absolute', inset: 0,
+            background: 'linear-gradient(to top, rgba(27,67,50,0.95) 0%, rgba(27,67,50,0.4) 55%, transparent 100%)',
+          }} />
+          <div className="container-wide" style={{ position: 'relative', paddingBottom: '3.5rem' }}>
+            <div style={{ display: 'flex', gap: '0.75rem', flexWrap: 'wrap', marginBottom: '1.25rem' }}>
+              <span style={{
+                background: project.tagColor, color: '#fff',
+                fontSize: '0.72rem', fontWeight: 700, letterSpacing: '0.08em',
+                padding: '0.35rem 1rem', borderRadius: '99px',
+              }}>
+                {project.tag}
+              </span>
+              <span style={{
+                background: project.statut === 'en-cours' ? '#2d6a4f' : 'rgba(255,255,255,0.15)',
+                color: '#fff',
+                fontSize: '0.72rem', fontWeight: 700, letterSpacing: '0.08em',
+                padding: '0.35rem 1rem', borderRadius: '99px',
+                display: 'flex', alignItems: 'center', gap: '0.4rem',
+              }}>
+                {project.statut === 'en-cours' && (
+                  <span style={{ width: 6, height: 6, borderRadius: '50%', background: '#52b788', display: 'inline-block' }} />
+                )}
+                {project.statut === 'en-cours' ? 'En cours' : '✓ Réalisé'}
+              </span>
+            </div>
+            <h1 style={{
+              fontFamily: 'var(--font-playfair), serif',
+              fontSize: 'clamp(1.8rem, 4vw, 3rem)',
+              fontWeight: 800, color: '#ffffff',
+              lineHeight: 1.15, marginBottom: '1rem', maxWidth: 720,
             }}>
-              {project.tag}
-            </span>
-            <span style={{
-              background: project.statut === 'en-cours' ? '#2d6a4f' : 'rgba(255,255,255,0.15)',
-              color: '#fff',
-              fontSize: '0.72rem', fontWeight: 700, letterSpacing: '0.08em',
-              padding: '0.35rem 1rem', borderRadius: '99px',
-              display: 'flex', alignItems: 'center', gap: '0.4rem',
-            }}>
-              {project.statut === 'en-cours' && (
-                <span style={{ width: 6, height: 6, borderRadius: '50%', background: '#52b788', display: 'inline-block' }} />
-              )}
-              {project.statut === 'en-cours' ? 'En cours' : '✓ Réalisé'}
-            </span>
+              {project.titre}
+            </h1>
+            {(project.lieu || project.date) && (
+              <p style={{ color: 'rgba(255,255,255,0.65)', fontSize: '0.9rem' }}>
+                {[project.lieu, project.date].filter(Boolean).join(' · ')}
+              </p>
+            )}
           </div>
-          <h1 style={{
-            fontFamily: 'var(--font-playfair), serif',
-            fontSize: 'clamp(1.8rem, 4vw, 3rem)',
-            fontWeight: 800, color: '#ffffff',
-            lineHeight: 1.15, marginBottom: '1rem', maxWidth: 720,
-          }}>
-            {project.titre}
-          </h1>
-          <p style={{ color: 'rgba(255,255,255,0.65)', fontSize: '0.9rem' }}>
-            {project.lieu} · {project.date}
-          </p>
-        </div>
-      </section>
+        </section>
+      ) : (
+        <section className="hero-section" style={{
+          paddingTop: '9rem', paddingBottom: '6rem',
+          background: 'linear-gradient(135deg, #1b4332 0%, #2d6a4f 100%)',
+          position: 'relative', overflow: 'hidden',
+        }}>
+          <div style={{ position: 'absolute', top: -80, right: -80, width: 400, height: 400, background: '#b5832a', borderRadius: '50%', opacity: 0.08 }} />
+          <div style={{ position: 'absolute', bottom: -60, left: -60, width: 280, height: 280, background: '#52b788', borderRadius: '50%', opacity: 0.08 }} />
+          <div className="container-wide" style={{ position: 'relative' }}>
+            <div style={{ display: 'flex', gap: '0.75rem', flexWrap: 'wrap', marginBottom: '1.5rem' }}>
+              <span style={{
+                background: project.tagColor, color: '#fff',
+                fontSize: '0.72rem', fontWeight: 700, letterSpacing: '0.08em',
+                padding: '0.35rem 1rem', borderRadius: '99px',
+              }}>
+                {project.tag}
+              </span>
+              <span style={{
+                background: project.statut === 'en-cours' ? 'rgba(82,183,136,0.3)' : 'rgba(255,255,255,0.15)',
+                color: '#fff',
+                fontSize: '0.72rem', fontWeight: 700, letterSpacing: '0.08em',
+                padding: '0.35rem 1rem', borderRadius: '99px',
+                display: 'flex', alignItems: 'center', gap: '0.4rem',
+              }}>
+                {project.statut === 'en-cours' && (
+                  <span style={{ width: 6, height: 6, borderRadius: '50%', background: '#52b788', display: 'inline-block' }} />
+                )}
+                {project.statut === 'en-cours' ? 'En cours' : '✓ Réalisé'}
+              </span>
+            </div>
+            <h1 style={{
+              fontFamily: 'var(--font-playfair), serif',
+              fontSize: 'clamp(1.8rem, 4vw, 3rem)',
+              fontWeight: 800, color: '#ffffff',
+              lineHeight: 1.15, marginBottom: '1rem', maxWidth: 720,
+            }}>
+              {project.titre}
+            </h1>
+            {project.sousTitre && (
+              <p style={{ color: '#e9c46a', fontWeight: 600, fontSize: '1rem', marginBottom: '1rem' }}>
+                {project.sousTitre}
+              </p>
+            )}
+            {(project.lieu || project.date) && (
+              <p style={{ color: 'rgba(255,255,255,0.65)', fontSize: '0.9rem' }}>
+                {[project.lieu, project.date].filter(Boolean).join(' · ')}
+              </p>
+            )}
+          </div>
+        </section>
+      )}
 
       {/* ═══════════════════════════════════════
           CONTENU
@@ -114,14 +170,18 @@ export default async function ProjectDetailPage({ params }: { params: Promise<{ 
                   Informations
                 </h3>
                 <div style={{ display: 'flex', flexDirection: 'column', gap: '1.1rem' }}>
-                  <div>
-                    <p style={{ fontSize: '0.72rem', color: '#9ca3af', fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.08em', marginBottom: '0.25rem' }}>Période</p>
-                    <p style={{ color: '#1b4332', fontWeight: 600, fontSize: '0.9rem' }}>{project.date}</p>
-                  </div>
-                  <div>
-                    <p style={{ fontSize: '0.72rem', color: '#9ca3af', fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.08em', marginBottom: '0.25rem' }}>Lieu</p>
-                    <p style={{ color: '#1b4332', fontWeight: 600, fontSize: '0.9rem', lineHeight: 1.5 }}>{project.lieu}</p>
-                  </div>
+                  {project.date && (
+                    <div>
+                      <p style={{ fontSize: '0.72rem', color: '#9ca3af', fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.08em', marginBottom: '0.25rem' }}>Période</p>
+                      <p style={{ color: '#1b4332', fontWeight: 600, fontSize: '0.9rem' }}>{project.date}</p>
+                    </div>
+                  )}
+                  {project.lieu && (
+                    <div>
+                      <p style={{ fontSize: '0.72rem', color: '#9ca3af', fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.08em', marginBottom: '0.25rem' }}>Lieu</p>
+                      <p style={{ color: '#1b4332', fontWeight: 600, fontSize: '0.9rem', lineHeight: 1.5 }}>{project.lieu}</p>
+                    </div>
+                  )}
                   <div>
                     <p style={{ fontSize: '0.72rem', color: '#9ca3af', fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.08em', marginBottom: '0.25rem' }}>Statut</p>
                     <span style={{
@@ -136,6 +196,27 @@ export default async function ProjectDetailPage({ params }: { params: Promise<{ 
                   </div>
                 </div>
               </div>
+
+              {/* Objectifs */}
+              {project.objectifs && project.objectifs.length > 0 && (
+                <div style={{
+                  background: '#ffffff', borderRadius: '20px',
+                  padding: '2rem', boxShadow: '0 4px 20px rgba(0,0,0,0.06)',
+                  border: '1px solid #e5e7eb',
+                }}>
+                  <h3 style={{ fontSize: '0.75rem', fontWeight: 700, color: '#b5832a', letterSpacing: '0.15em', textTransform: 'uppercase', marginBottom: '1.25rem' }}>
+                    Objectifs
+                  </h3>
+                  <div style={{ display: 'flex', flexDirection: 'column', gap: '0.875rem' }}>
+                    {project.objectifs.map((obj, i) => (
+                      <div key={i} style={{ display: 'flex', alignItems: 'flex-start', gap: '0.75rem' }}>
+                        <div style={{ width: 8, height: 8, borderRadius: '50%', background: '#2d6a4f', flexShrink: 0, marginTop: '0.45rem' }} />
+                        <span style={{ color: '#374151', fontSize: '0.875rem', lineHeight: 1.7 }}>{obj}</span>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              )}
 
               {/* Partenaires */}
               {project.partenaires.length > 0 && (
