@@ -1,6 +1,8 @@
 @import "tailwindcss";
 
 :root {
+  --font-inter: 'Inter', system-ui, sans-serif;
+  --font-playfair: 'Playfair Display', Georgia, serif;
   --green-primary: #2d6a4f;
   --green-light: #52b788;
   --green-dark: #1b4332;
