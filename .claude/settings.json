@@ -3,7 +3,8 @@
     "allow": [
       "Bash(convert --version)",
       "Bash(python3 -c \"from PIL import Image; print\\('pillow ok'\\)\")",
-      "Bash(python3)"
+      "Bash(python3)",
+      "Bash(git commit -m ' *)"
     ]
   }
 }
