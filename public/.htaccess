@@ -1,0 +1,15 @@
+Options -MultiViews
+RewriteEngine On
+RewriteBase /
+
+# Servir les fichiers existants directement
+RewriteCond %{REQUEST_FILENAME} -f [OR]
+RewriteCond %{REQUEST_FILENAME} -d
+RewriteRule ^ - [L]
+
+# Rediriger vers le fichier .html correspondant si existant
+RewriteCond %{REQUEST_FILENAME}.html -f
+RewriteRule ^(.+?)/?$ /$1.html [L]
+
+# Fallback sur index.html
+RewriteRule ^ /index.html [L]

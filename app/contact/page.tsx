@@ -43,70 +43,68 @@ export default function ContactPage() {
             <div className="divider divider-center" />
           </div>
 
-          <div className="grid-3-to-1" style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '1.75rem', maxWidth: 900, margin: '0 auto 5rem' }}>
-            {[
-              {
-                icon: (
-                  <svg width="22" height="22" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/>
-                  </svg>
-                ),
-                label: 'Téléphone',
-                value: '+33 7 84 24 02 43',
-                sub: 'Du lundi au vendredi',
-                href: 'tel:+33784240243',
-                accent: '#2d6a4f',
-              },
-              {
-                icon: (
-                  <svg width="22" height="22" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/>
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/>
-                  </svg>
-                ),
-                label: 'Siège social',
-                value: 'Normandie, France',
-                sub: 'France · Afrique de l\'Ouest · Afrique Australe',
-                accent: '#b5832a',
-              },
-              {
-                icon: (
-                  <svg width="22" height="22" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9"/>
-                  </svg>
-                ),
-                label: 'Secteur',
-                value: 'Environnement & Durabilité',
-                sub: 'Association à but non lucratif',
-                accent: '#52b788',
-              },
-            ].map((c, i) => (
-              <div key={i} style={{
+          {/* Cartes contact */}
+          <div style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'center', gap: '1.75rem', marginBottom: '5rem' }}>
+
+            {/* Téléphone */}
+            <a href="tel:+33784240243" style={{ textDecoration: 'none', flex: '1 1 260px', maxWidth: 320 }}>
+              <div style={{
                 background: '#ffffff', borderRadius: '24px',
                 padding: '2.5rem 2rem', textAlign: 'center',
                 boxShadow: '0 4px 24px rgba(0,0,0,0.07)',
+                border: '2px solid transparent',
+                transition: 'border-color 0.2s',
+                height: '100%',
               }}>
                 <div style={{
-                  width: 60, height: 60, borderRadius: '18px',
-                  background: `${c.accent}18`,
+                  width: 64, height: 64, borderRadius: '18px',
+                  background: 'rgba(45,106,79,0.1)',
                   display: 'flex', alignItems: 'center', justifyContent: 'center',
-                  margin: '0 auto 1.5rem', color: c.accent,
+                  margin: '0 auto 1.5rem', color: '#2d6a4f',
                 }}>
-                  {c.icon}
+                  <svg width="26" height="26" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/>
+                  </svg>
                 </div>
-                <p style={{ fontSize: '0.7rem', fontWeight: 700, color: '#9ca3af', letterSpacing: '0.12em', textTransform: 'uppercase', marginBottom: '0.5rem' }}>
-                  {c.label}
+                <p style={{ fontSize: '0.7rem', fontWeight: 700, color: '#9ca3af', letterSpacing: '0.12em', textTransform: 'uppercase', marginBottom: '0.6rem' }}>
+                  Téléphone
                 </p>
-                {c.href ? (
-                  <a href={c.href} style={{ fontSize: '1rem', fontWeight: 700, color: '#1b4332', textDecoration: 'none', display: 'block', marginBottom: '0.4rem' }}>
-                    {c.value}
-                  </a>
-                ) : (
-                  <p style={{ fontSize: '1rem', fontWeight: 700, color: '#1b4332', marginBottom: '0.4rem' }}>{c.value}</p>
-                )}
-                <p style={{ fontSize: '0.825rem', color: '#9ca3af' }}>{c.sub}</p>
+                <p style={{ fontSize: '1.2rem', fontWeight: 800, color: '#1b4332', marginBottom: '0.4rem' }}>
+                  +33 7 84 24 02 43
+                </p>
+                <p style={{ fontSize: '0.825rem', color: '#9ca3af' }}>Du lundi au vendredi</p>
               </div>
-            ))}
+            </a>
+
+            {/* Adresse */}
+            <div style={{ flex: '1 1 260px', maxWidth: 320 }}>
+              <div style={{
+                background: '#ffffff', borderRadius: '24px',
+                padding: '2.5rem 2rem', textAlign: 'center',
+                boxShadow: '0 4px 24px rgba(0,0,0,0.07)',
+                height: '100%',
+              }}>
+                <div style={{
+                  width: 64, height: 64, borderRadius: '18px',
+                  background: 'rgba(181,131,42,0.1)',
+                  display: 'flex', alignItems: 'center', justifyContent: 'center',
+                  margin: '0 auto 1.5rem', color: '#b5832a',
+                }}>
+                  <svg width="26" height="26" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/>
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/>
+                  </svg>
+                </div>
+                <p style={{ fontSize: '0.7rem', fontWeight: 700, color: '#9ca3af', letterSpacing: '0.12em', textTransform: 'uppercase', marginBottom: '0.6rem' }}>
+                  Siège social
+                </p>
+                <p style={{ fontSize: '1.1rem', fontWeight: 800, color: '#1b4332', marginBottom: '0.4rem' }}>
+                  Normandie, France
+                </p>
+                <p style={{ fontSize: '0.825rem', color: '#9ca3af' }}>France · Bénin · Zambie</p>
+              </div>
+            </div>
+
           </div>
 
           {/* Réseaux sociaux */}
@@ -114,7 +112,7 @@ export default function ContactPage() {
             <p style={{ fontSize: '0.72rem', fontWeight: 700, color: '#2d6a4f', letterSpacing: '0.15em', textTransform: 'uppercase', marginBottom: '1.5rem' }}>
               Suivez-nous
             </p>
-            <div style={{ display: 'flex', gap: '1rem', justifyContent: 'center' }}>
+            <div style={{ display: 'flex', gap: '1rem', justifyContent: 'center', flexWrap: 'wrap' }}>
               <a
                 href="https://www.facebook.com/share/1HPuMCR7Nz/?mibextid=wwXIfr"
                 target="_blank"
